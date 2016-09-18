@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team name</th>
+      <th>Category</th>
+      <th>Jrotc branch</th>
+      <th>Day1 score</th>
+      <th>Day2 score</th>
+      <th>Total score</th>
+      <th>Sort score</th>
+      <th>School</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.entryclass %></td>
+        <td><%= team.JROTC_branch %></td>
+        <td><%= team.day1_score %></td>
+        <td><%= team.day2_score %></td>
+        <td><%= team.total_score %></td>
+        <td><%= team.sort_score %></td>
+        <td><%= team.school %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

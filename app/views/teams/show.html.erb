@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team name:</strong>
+  <%= @team.team_name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @team.category %>
+</p>
+
+<p>
+  <strong>Jrotc branch:</strong>
+  <%= @team.JROTC_branch %>
+</p>
+
+<p>
+  <strong>Day1 score:</strong>
+  <%= @team.day1_score %>
+</p>
+
+<p>
+  <strong>Day2 score:</strong>
+  <%= @team.day2_score %>
+</p>
+
+<p>
+  <strong>Total score:</strong>
+  <%= @team.total_score %>
+</p>
+
+<p>
+  <strong>Sort score:</strong>
+  <%= @team.sort_score %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @team.school %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

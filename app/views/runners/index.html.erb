@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+<table class=runners_header>
+  <td id=import_runners>
+    <h2>Import Runners</h2>
+    <%= form_tag import_runners_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import_Runners" %>
+    <% end %>
+  </td>
+  <td id=import_teams>
+    <h2>Import Teams</h2>
+    <%= form_tag import_teams_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import_Teams" %>
+    <% end %>
+  </td>
+</table>
+<h1>Runners</h1>
+<table class=runners_body>
+  <thead>
+    <tr>
+      <th>Database</th>
+      <th>Surname</th>
+      <th>Firstname</th>
+      <th>Gender</th>
+      <th>School</th>
+      <th>Entryclass</th>
+      <th>Time1</th>
+      <th>Float time1</th>
+      <th>Classifier1</th>
+      <th>Time2</th>
+      <th>Float time2</th>
+      <th>Total time</th>
+      <th>Float total time</th>
+      <th>Day1 score</th>
+      <th>Day2 score</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @runners.each do |runner| %>
+      <tr>
+        <td><%= runner.database_id %></td>
+        <td><%= runner.surname %></td>
+        <td><%= runner.firstname %></td>
+        <td><%= runner.gender %></td>
+        <td><%= runner.school %></td>
+        <td><%= runner.entryclass %></td>
+        <td><%= runner.time1 %></td>
+        <td><%= runner.float_time1 %></td>
+        <td><%= runner.classifier1 %></td>
+        <td><%= runner.time2 %></td>
+        <td><%= runner.float_time2 %></td>
+        <td><%= runner.total_time %></td>
+        <td><%= runner.float_total_time %></td>
+        <td><%= runner.day1_score %></td>
+        <td><%= runner.day2_score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
