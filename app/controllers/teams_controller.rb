@@ -3,6 +3,17 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    @day1_awt = Day1Awt.all
+    @day1_hash = Hash.new
+    @day2_awt = Day2Awt.all
+    @day2_hash = Hash.new
+
+    @isp = Team.where(entryclass: 'ISP').order(:sort_score, :day1_score, :name)
+    @isi = Team.where(entryclass: 'ISI').order(:sort_score, :day1_score, :name)
+    @isjv = Team.where(entryclass: 'ISJV').order(:sort_score, :day1_score, :name)
+    @isv = Team.where(entryclass: 'ISV').order(:sort_score, :day1_score, :name)
+    @jrotc = Team.where(entryclass: 'ISV').where.not(branch: nil).order(:sort_score, :day1_score, :name)
+
   end
 
   def show
