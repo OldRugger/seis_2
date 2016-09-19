@@ -1,33 +1,148 @@
 <p id="notice"><%= notice %></p>
+<table class=teams_table >
+  <tr id=awt_bar> 
+    <th class="awt" colspan=18 >Average Weighted Time</th>
+  </tr>
+  <tr> 
+    <td class=awt_cat colspan=9><b>Day 1</b></td>
+    <td class=awt_cat colspan=9><b>Day 2</b></td>
+  </tr>
+  <tr>
+    <td class=awt_cat><b>Class</b></td>
+    <td class=awt_cat>ISVM</td>
+    <td class=awt_cat>ISVF</td>
+    <td class=awt_cat>ISJVM</td>
+    <td class=awt_cat>ISJVF</td>
+    <td class=awt_cat>ISIM</td>
+    <td class=awt_cat>ISIF</td>
+    <td class=awt_cat>ISPM</td>
+    <td class=awt_cat>ISPF</td>
+    <td class=awt_cat><b>Class</b></td>
+    <td class=awt_cat>ISVM</td>
+    <td class=awt_cat>ISVF</td>
+    <td class=awt_cat>ISJVM</td>
+    <td class=awt_cat>ISJVF</td>
+    <td class=awt_cat>ISIM</td>
+    <td class=awt_cat>ISIF</td>
+    <td class=awt_cat>ISPM</td>
+    <td class=awt_cat>ISPF</td>
+  </tr>
+  <tr>
+    <td class=awt_cat><b>AWT</b></td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISVM"] %>
+        <%=@day1_hash["ISVM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
 
-<h1>Listing teams</h1>
+    <td class=awt_cat>
+      <% if @day1_hash["ISVF"] %>
+        <%=@day1_hash["ISVF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISJVM"] %>
+        <%=@day1_hash["ISJVM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISJVF"] %>
+        <%=@day1_hash["ISJVF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISIM"] %>
+        <%=@day1_hash["ISIM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISIF"] %>
+        <%=@day1_hash["ISIF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISPM"] %>
+        <%=@day1_hash["ISPM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day1_hash["ISPF"] %>
+        <%=@day1_hash["ISPF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat><b>AWT</b></td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISVM"] %>
+        <%=@day2_hash["ISVM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Team name</th>
-      <th>Category</th>
-      <th>Jrotc branch</th>
-      <th>Day1 score</th>
-      <th>Day2 score</th>
-      <th>Total score</th>
-      <th>Sort score</th>
-      <th>School</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.entryclass %></td>
-        <td><%= team.JROTC_branch %></td>
-        <td><%= team.day1_score %></td>
-        <td><%= team.day2_score %></td>
-        <td><%= team.total_score %></td>
-        <td><%= team.sort_score %></td>
-        <td><%= team.school %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <td class=awt_cat>
+      <% if @day2_hash["ISVF"] %>
+        <%=@day2_hash["ISVF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISJVM"] %>
+        <%=@day2_hash["ISJVM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISJVF"] %>
+        <%=@day2_hash["ISJVF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISIM"] %>
+        <%=@day2_hash["ISIM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISIF"] %>
+        <%=@day2_hash["ISIF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISPM"] %>
+        <%=@day2_hash["ISPM"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+    <td class=awt_cat>
+      <% if @day2_hash["ISPF"] %>
+        <%=@day2_hash["ISPF"]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+  </tr>
 </table>
