@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
     @isi = Team.where(entryclass: 'ISI').order(:sort_score, :day1_score, :name)
     @isjv = Team.where(entryclass: 'ISJV').order(:sort_score, :day1_score, :name)
     @isv = Team.where(entryclass: 'ISV').order(:sort_score, :day1_score, :name)
-    @jrotc = Team.where(entryclass: 'ISV').where.not(branch: nil).order(:sort_score, :day1_score, :name)
+    @jrotc = Team.where(entryclass: 'ISV').where.not(JROTC_branch: nil).order(:sort_score, :day1_score, :name)
 
   end
 
