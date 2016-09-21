@@ -146,3 +146,129 @@
     </td>
   </tr>
 </table>
+<table width = 100% style="border-collapse: collapse; order-spacing: 0;
+    margin: 0; padding: 0;">
+  <tr style="background-color:darkred">
+    <th align = center colspan=5><font color="white">Team Results</font></th>
+  </tr>
+  <tr style="background-color:LightGoldenRodYellow">
+    <%if (@isv.count > 0)%>
+      <th align = center>ISV</th>
+    <% end %>
+    <%if (@isjv.count > 0)%>
+      <th align = center>ISJV</th>
+     <% end %>   
+    <%if (@isi.count > 0)%>
+      <th align = center>ISI</th>
+    <% end %>
+    <%if (@isp.count > 0)%>
+      <th align = center>ISP</th>
+    <% end %>
+    <% if (@jrotc.count > 0) %>
+      <th align = center>JROTC</th>
+    <% end %>
+  </tr>
+  <tr>
+    <%if (@isv.count > 0)%>
+    <td valign=top> 
+      <table> 
+        <%iplace = 1 %>
+        <% @isv.each do |result| %>
+          <tr>
+            <td valign=top><%=iplace.to_s %></td>
+            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
+              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+            <% else %>
+              <%score = ""%>
+            <% end %>
+            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+            </td>
+            <%iplace +=1%>
+          </tr>
+        <% end %>   
+       </table> 
+    </td>
+    <% end %>
+    <%if (@isjv.count > 0)%>
+    <td valign=top> 
+      <table > 
+        <%iplace = 1 %>
+        <% @isjv.each do |result| %>
+          <tr>
+            <td valign=top><%=iplace.to_s %></td>
+            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
+              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+            <% else %>
+              <%score = ""%>
+            <% end %>
+            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+            </td>
+            <%iplace +=1%>
+          </tr>
+        <% end %>   
+       </table> 
+    </td>
+    <% end %>
+    <%if (@isi.count > 0)%>
+    <td valign=top> 
+      <table > 
+        <%iplace = 1 %>
+        <% @isi.each do |result| %>
+          <tr>
+            <td valign=top><%=iplace.to_s %></td>
+            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
+              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+            <% else %>
+              <%score = ""%>
+            <% end %>
+            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+            </td>
+           <%iplace +=1%>
+          </tr>
+        <% end %>   
+       </table> 
+    </td>
+    <% end %>
+    <%if (@isp.count > 0)%>
+    <td valign=top> 
+      <table > 
+        <%iplace = 1 %>
+        <% @isp.each do |result| %>
+          <tr>
+            <td valign=top><%=iplace.to_s %></td>
+            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
+              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+            <% else %>
+              <%score = ""%>
+            <% end %>
+            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+           </td>
+           <%iplace +=1%>
+          </tr>
+        <% end %>   
+       </table> 
+    </td>
+    <% end %>
+    <%if (@jrotc.count > 0)%>
+    <td valign=top> 
+      <table > 
+        <%iplace = 1 %>
+        <% @jrotc.each do |result| %>
+          <tr>
+            <td valign=top><%=iplace.to_s %></td>
+            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
+              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+            <% else %>
+              <%score = ""%>
+            <% end %>
+            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+            </td>
+            <%iplace +=1%>
+          </tr>
+        <% end %>   
+       </table> 
+    </td>
+    <% end %>
+
+  </tr>
+</table>
