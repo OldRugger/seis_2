@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
 <table class=teams_table >
   <tr id=awt_bar> 
     <th class="awt" colspan=18 >Average Weighted Time</th>
@@ -8,267 +9,64 @@
     <td class=awt_cat colspan=9><b>Day 2</b></td>
   </tr>
   <tr>
-    <td class=awt_cat><b>Class</b></td>
-    <td class=awt_cat>ISVM</td>
-    <td class=awt_cat>ISVF</td>
-    <td class=awt_cat>ISJVM</td>
-    <td class=awt_cat>ISJVF</td>
-    <td class=awt_cat>ISIM</td>
-    <td class=awt_cat>ISIF</td>
-    <td class=awt_cat>ISPM</td>
-    <td class=awt_cat>ISPF</td>
-    <td class=awt_cat><b>Class</b></td>
-    <td class=awt_cat>ISVM</td>
-    <td class=awt_cat>ISVF</td>
-    <td class=awt_cat>ISJVM</td>
-    <td class=awt_cat>ISJVF</td>
-    <td class=awt_cat>ISIM</td>
-    <td class=awt_cat>ISIF</td>
-    <td class=awt_cat>ISPM</td>
-    <td class=awt_cat>ISPF</td>
+    <% 2.times do %>
+      <td class=awt_cat><b>Class</b></td>
+      <% @class_list.each do |c| %>
+        <td class=awt_cat><%=c%></td>
+      <% end %>
+    <% end %>
   </tr>
   <tr>
-    <td class=awt_cat><b>AWT</b></td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISVM"] %>
-        <%=@day1_hash["ISVM"]%>
-      <% else %>
-        n/a
+    <% 2.times do %>
+      <td class=awt_cat><b>AWT</b></td>
+      <% @class_list.each do |c| %>
+        <td class=awt_cat>
+          <% if @day1_hash[c] %>
+            <%=@day1_hash[c]%>
+          <% else %>
+            n/a
+          <% end %>
+        </td>
       <% end %>
-    </td>
-
-    <td class=awt_cat>
-      <% if @day1_hash["ISVF"] %>
-        <%=@day1_hash["ISVF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISJVM"] %>
-        <%=@day1_hash["ISJVM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISJVF"] %>
-        <%=@day1_hash["ISJVF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISIM"] %>
-        <%=@day1_hash["ISIM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISIF"] %>
-        <%=@day1_hash["ISIF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISPM"] %>
-        <%=@day1_hash["ISPM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day1_hash["ISPF"] %>
-        <%=@day1_hash["ISPF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat><b>AWT</b></td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISVM"] %>
-        <%=@day2_hash["ISVM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-
-    <td class=awt_cat>
-      <% if @day2_hash["ISVF"] %>
-        <%=@day2_hash["ISVF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISJVM"] %>
-        <%=@day2_hash["ISJVM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISJVF"] %>
-        <%=@day2_hash["ISJVF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISIM"] %>
-        <%=@day2_hash["ISIM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISIF"] %>
-        <%=@day2_hash["ISIF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISPM"] %>
-        <%=@day2_hash["ISPM"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
-    <td class=awt_cat>
-      <% if @day2_hash["ISPF"] %>
-        <%=@day2_hash["ISPF"]%>
-      <% else %>
-        n/a
-      <% end %>
-    </td>
+    <% end %>
   </tr>
+
 </table>
-<table width = 100% style="border-collapse: collapse; order-spacing: 0;
+<table border = 1 width = 100% style="border-collapse: collapse; order-spacing: 0;
     margin: 0; padding: 0;">
   <tr style="background-color:darkred">
     <th align = center colspan=5><font color="white">Team Results</font></th>
   </tr>
   <tr style="background-color:LightGoldenRodYellow">
-    <%if (@isv.count > 0)%>
-      <th align = center>ISV</th>
-    <% end %>
-    <%if (@isjv.count > 0)%>
-      <th align = center>ISJV</th>
-     <% end %>   
-    <%if (@isi.count > 0)%>
-      <th align = center>ISI</th>
-    <% end %>
-    <%if (@isp.count > 0)%>
-      <th align = center>ISP</th>
-    <% end %>
-    <% if (@jrotc.count > 0) %>
-      <th align = center>JROTC</th>
-    <% end %>
+  <% @classes.each do  |c, teams| %>
+      <%if (teams.count > 0)%>
+        <th align = center><%= c.upcase %></th>
+      <% end %>
+  <% end %>
   </tr>
   <tr>
-    <%if (@isv.count > 0)%>
-    <td valign=top> 
-      <table> 
-        <%iplace = 1 %>
-        <% @isv.each do |result| %>
-          <tr>
-            <td valign=top><%=iplace.to_s %></td>
-            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
-              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
-            <% else %>
-              <%score = ""%>
-            <% end %>
-            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
-            </td>
-            <%iplace +=1%>
-          </tr>
-        <% end %>   
-       </table> 
-    </td>
+  <% @classes.each do  |c, teams| %>
+    <%if (teams.count > 0)%>
+      <td valign=top> 
+        <table > 
+          <%iplace = 1 %>
+          <% teams.each do |result| %>
+            <tr>
+              <td valign=top><%=iplace.to_s %></td>
+              <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
+                <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+              <% else %>
+                <%score = ""%>
+              <% end %>
+              <td class="team">
+                <b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+              </td>
+              <%iplace +=1%>
+            </tr>
+          <% end %>   
+         </table> 
+      </td>
     <% end %>
-    <%if (@isjv.count > 0)%>
-    <td valign=top> 
-      <table > 
-        <%iplace = 1 %>
-        <% @isjv.each do |result| %>
-          <tr>
-            <td valign=top><%=iplace.to_s %></td>
-            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
-              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
-            <% else %>
-              <%score = ""%>
-            <% end %>
-            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
-            </td>
-            <%iplace +=1%>
-          </tr>
-        <% end %>   
-       </table> 
-    </td>
-    <% end %>
-    <%if (@isi.count > 0)%>
-    <td valign=top> 
-      <table > 
-        <%iplace = 1 %>
-        <% @isi.each do |result| %>
-          <tr>
-            <td valign=top><%=iplace.to_s %></td>
-            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
-              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
-            <% else %>
-              <%score = ""%>
-            <% end %>
-            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
-            </td>
-           <%iplace +=1%>
-          </tr>
-        <% end %>   
-       </table> 
-    </td>
-    <% end %>
-    <%if (@isp.count > 0)%>
-    <td valign=top> 
-      <table > 
-        <%iplace = 1 %>
-        <% @isp.each do |result| %>
-          <tr>
-            <td valign=top><%=iplace.to_s %></td>
-            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
-              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
-            <% else %>
-              <%score = ""%>
-            <% end %>
-            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
-           </td>
-           <%iplace +=1%>
-          </tr>
-        <% end %>   
-       </table> 
-    </td>
-    <% end %>
-    <%if (@jrotc.count > 0)%>
-    <td valign=top> 
-      <table > 
-        <%iplace = 1 %>
-        <% @jrotc.each do |result| %>
-          <tr>
-            <td valign=top><%=iplace.to_s %></td>
-            <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
-              <%score = " (" + result.total_score.round(2).to_s + ")"%> 
-            <% else %>
-              <%score = ""%>
-            <% end %>
-            <td class="team"><b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
-            </td>
-            <%iplace +=1%>
-          </tr>
-        <% end %>   
-       </table> 
-    </td>
-    <% end %>
-
+  <% end %>
   </tr>
 </table>
