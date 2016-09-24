@@ -1,6 +1,7 @@
 class CreateDay1Awts < ActiveRecord::Migration
   def change
     create_table :day1_awts do |t|
+      t.string :entryclass
       t.float :runner1_float_time
       t.time :runner1_time
       t.integer :runner1_id
