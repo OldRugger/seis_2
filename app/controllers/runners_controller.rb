@@ -9,9 +9,11 @@ class RunnersController < ApplicationController
   end
 
   def import
-    clear_existing_data
-    added, skipped = Runner.import(params[:file])
-    redirect_to runners_url, notice: "#{added} runners imported, #{skipped} runners skipped."
+    ActiveRecord::Base.transaction do
+      clear_existing_data
+      @added, @skipped = Runner.import(params[:file])
+    end
+    redirect_to runners_url, notice: "#{@added} runners imported, #{@skipped} runners skipped."
   end
 
   private

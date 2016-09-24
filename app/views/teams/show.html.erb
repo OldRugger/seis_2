@@ -1,44 +1,72 @@
 <p id="notice"><%= notice %></p>
+<table width = 100% style="border-collapse: collapse; order-spacing: 0;
+    margin: 0; padding: 0;">
+  <tr style="background-color:darkred">
+    <th align = center colspan=4><font color="white">
+      <%= @team.name %></font>
+    </th>
+  </tr>
+  <tr>
+    <td><b>Catetory:</b>
+      <%= @team.entryclass %>
+    </td>
+    <td><b>JROTC branch:</b>
+      <%= @team.JROTC_branch %>
+    </td>
+    <td>
+      <b>Day1 score:</b>
+      <%if @team.day1_score && @team.day1_score.round < 9999 %>
+        <%= @team.day1_score.round(2) %>
+      <%else%>
+        no score
+      <%end%>
+    </td>
+    <td>
+      <b>Day2 score:</b>
+      <%if @team.day1_score && @team.day2_score.round < 9999 %>
+        <%= @team.day2_score.round(2) %>
+      <%else%>
+        no score
+      <%end%>
+    </td>
+  </tr>
+</table>
+<table width=100% border=0 cellpadding=0 cellspacing=0 style="border-collapse: collapse; order-spacing: 0;
+    margin: 0; padding: 0;">
+  <tr style="background-color:LightGoldenRodYellow">
+    <th rowspan=2>Runner</th>
+    <th rowspan=2>Class</th>
+    <th colspan=4 class="cat">Day1</th>
+    <th colspan=4 class="cat">Day2</th>
+  </tr>
+  <tr style="background-color:LightGoldenRodYellow">
+    <th class="cat2">Time</th>
+    <th class="cat2">Class AWT</th>
+    <th class="cat2">Category AWT</th>
+    <th class="cat4">Score</th>
+    <th class="cat2">Time</th>
+    <th class="cat2">Class AWT</th>
+    <th class="cat2">Category AWT</th>
+    <th class="cat5">Score</th>
+  </tr>
+  <% @runners.each do |runner| %>
+    <tr>
+      <td class="cat3">
+        <b> <%= "#{runner['firstname']} #{runner['surname']}" %> </b>
+      </td>
+      <td class="cat3">
+        <%= "#{runner['entryclass']}" %>
+      </td>
+    </tr>
+  <% end %>
 
-<p>
-  <strong>Team name:</strong>
-  <%= @team.team_name %>
-</p>
+</table>
+<br>
+<br>
+<br><b>Class AWT</b> used within the Team score calculation for successful runners
+<br><b>Category</b> AWT used within the Team score calculation for DNF, MP, Disq runners
+<br>
+<h3>US Orienteering Scoring rules 
+<h4>A.35.4 <em>Scoring</em></h4><p>A.35.4.1 Scores for each race are computed as follows:</p><ol type="a"><li>For each Individual Intercollegiate class, define AWT (the average winning time) as the average of the times of the top three individual competitors in that class (for Championships use only times from Team Championship-eligible competitors). In the event that there are fewer than three eligible competitors with a valid time in any intercollegiate class, the AWT shall be calculated as the average of the times of all eligible competitors with a valid time.</li><li>For each competitor in each Individual Intercollegiate class with a valid result, their score is computed as 60*(competitor’s time)/ (AWT for the class).</li><li>For competitors with an OVT, MSP, DNF or DSQ result, their score shall be the larger of 10+[60*(course time limit)/ (AWT for the male class)] and 10+[60*(course time limit)/ (AWT for the female class)] for their team level (Varsity or JV).</li></ol><p>A.35.4.2 <em>Team Scoring</em>: The best three scores from each race for each team are combined for a team score. Lowest overall team score wins.</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @team.category %>
-</p>
-
-<p>
-  <strong>Jrotc branch:</strong>
-  <%= @team.JROTC_branch %>
-</p>
-
-<p>
-  <strong>Day1 score:</strong>
-  <%= @team.day1_score %>
-</p>
-
-<p>
-  <strong>Day2 score:</strong>
-  <%= @team.day2_score %>
-</p>
-
-<p>
-  <strong>Total score:</strong>
-  <%= @team.total_score %>
-</p>
-
-<p>
-  <strong>Sort score:</strong>
-  <%= @team.sort_score %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @team.school %>
-</p>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<b><%= link_to 'Back', teams_path %></b>

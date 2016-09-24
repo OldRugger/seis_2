@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20160917195006) do
 
   create_table "day1_awts", force: true do |t|
+    t.string   "entryclass"
     t.float    "runner1_float_time"
     t.time     "runner1_time"
     t.integer  "runner1_id"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160917195006) do
   end
 
   create_table "day2_awts", force: true do |t|
+    t.string   "entryclass"
     t.float    "runner1_float_time"
     t.time     "runner1_time"
     t.integer  "runner1_id"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160917195006) do
     t.string   "classifier1"
     t.time     "time2"
     t.float    "float_time2"
+    t.string   "classifier2"
     t.string   "total_time"
     t.float    "float_total_time"
     t.float    "day1_score"

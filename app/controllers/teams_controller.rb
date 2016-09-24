@@ -3,9 +3,9 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
-    @day1_awt = Day1Awt.all
+    @day1_awts = Day1Awt.all
     @day1_hash = Hash.new
-    @day2_awt = Day2Awt.all
+    @day2_awts = Day2Awt.all
     @day2_hash = Hash.new
 
     @isp = Team.where(entryclass: 'ISP').order(:sort_score, :day1_score, :name)
@@ -23,12 +23,25 @@ class TeamsController < ApplicationController
   end
 
   def show
+    query = "SELECT firstname, surname, runners.entryclass " + 
+              "FROM team_members " +
+              "JOIN runners " +
+                "on runners.id = team_members.runner_id " +
+              "LEFT JOIN day1_awts " +
+                "on runners.entryclass = day1_awts.entryclass " +
+              "LEFT JOIN day2_awts " +
+                 "on runners.entryclass = day2_awts.entryclass " +
+             "WHERE team_id = " + params[:id] +
+             " ORDER BY runners.surname"
+    @runners =  ActiveRecord::Base.connection.execute(query)
   end
 
   def import
-    clear_existing_teams
-    teams, members = Team.import(params[:file])
-    redirect_to teams_url, notice: "#{teams} teams imported, with #{members} team members."
+    ActiveRecord::Base.transaction do
+      clear_existing_teams
+      @teams, @members = Team.import(params[:file])
+    end
+    redirect_to teams_url, notice: "#{@teams} teams imported, with #{@members} team members."
 
   end
 
