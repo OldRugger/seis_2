@@ -1,4 +1,5 @@
 development:
-  title: '2017 Southeast Interscholastic Championships'
+  title:     '2017 Southeast Interscholastic Championships'
   hotfolder: C:\orienteering\SEIS_2017\results
+  max_time:  180
 

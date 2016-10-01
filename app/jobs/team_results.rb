@@ -3,6 +3,38 @@ class TeamResults
   
   def perform(file)
     process_results_file(file[0])
+    calculate_awt
+  end
+
+  def calculate_awt
+    puts "calculate_awt"
+    calculate_awt_by_class("ISP")
+    calculate_awt_by_class("ISI")
+    calculate_awt_by_class("ISJV")
+    calculate_awt_by_class("ISV")
+  end
+
+  def calculate_awt_by_class(team_class)
+    puts "calculate_awt - #{team_class}"
+    calculate_awt_by_class_gender(team_class, "M")
+    calculate_awt_by_class_gender(team_class, "F")
+  end
+
+
+  def calculate_awt_by_class_gender(team_class, gender)
+    puts "calculate_awt - #{team_class} - #{gender}"
+    times = []
+    awt_runners = Runner.where(entryclass: team_class+gender, classifier1: 0)
+                    .where("float_time1 > 0 ")
+                    .order(:time1).limit(3)
+    return if awt_runners.count == 0
+    awt_runners.each { |r| times.push(r.float_time1) }
+    awt = get_awt_time(times)
+    puts "awt = #{awt}"
+  end
+
+  def get_awt_time(times)
+    times.inject(0.0) { |sum, el| sum + el } / times.size
   end
 
   def process_results_file(file)
@@ -19,8 +51,6 @@ class TeamResults
   end
 
   def process_results_row(row)
-    puts "update #{row['Database Id'].to_s} #{row['Short']}"
-    puts "time1 #{row["Time1"]}"
     if (row["Time1"]) 
       res = get_time(row["Time1"])
       float_time1 = res['float']
@@ -28,7 +58,6 @@ class TeamResults
     else
       float_time1 = 0.0
     end
-    puts "time2 #{row["Time2"]}"
     if (row["Time2"]) 
       res = get_time(row["Time2"])
       float_time2 = res['float']
