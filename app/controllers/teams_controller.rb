@@ -14,11 +14,12 @@ class TeamsController < ApplicationController
     @isv = Team.where(entryclass: 'ISV').order(:sort_score, :day1_score, :name)
     @jrotc = Team.where(entryclass: 'ISV').where.not(JROTC_branch: nil).order(:sort_score, :day1_score, :name)
 
-    @classes = { 'isp' => @isp, 
-                 'isi' => @isi,
-                 'isjv' => @isjv,
-                 'isv' => @isv,
-                 'jrotc' => @jrotc}
+    @classes = { 'isv'   => @isv,
+                 'isjv'  => @isjv,
+                 'isi'   => @isi,
+                 'isp'   => @isp, 
+                 'jrotc' => @jrotc }
+                 
     @class_list = ['ISVM', 'ISVF', 'ISJVM', 'ISJVF', 'ISIM', 'ISIF', 'ISPM', 'ISPF']
   end
 
