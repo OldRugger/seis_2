@@ -7,12 +7,45 @@ class TeamResults
   end
 
   def calculate_awt
-    puts "calculate_awt"
-    delete_awt_results
-    calculate_awt_by_class("ISP")
-    calculate_awt_by_class("ISI")
-    calculate_awt_by_class("ISJV")
-    calculate_awt_by_class("ISV")
+    ActiveRecord::Base.transaction do 
+      puts "calculate_awt"
+      delete_awt_results
+      calculate_awt_by_class("ISP")
+      calculate_awt_by_class("ISI")
+      calculate_awt_by_class("ISJV")
+      calculate_awt_by_class("ISV")
+      update_team_scores
+    end
+  end
+
+  def update_team_scores
+    sortvalue = 9999.0
+    teams = Team.all
+    #update day 1 scores
+    teams.each do |team|
+      day1_score = get_team_day_scores(team, 1)
+      day2_score = get_team_day_scores(team, 2)
+      team.total_score = day1_score + day2_score
+      team.day1_score  = day1_score > 0.0 ? day1_score : sortvalue
+      team.day2_score  = day2_score > 0.0 ? day2_score : sortvalue
+      team.sort_score  = team.day1_score + team.day2_score
+      team.save
+    end
+  end
+
+  def get_team_day_scores(team, day)
+    day_score = 0.0
+    scores = TeamMember.joins(:runner)
+      .select("team_members.team_id,runners.id as runner_id,runners.day#{day}_score as day_score")
+      .where(team_id: team.id)
+      .order("runners.day#{day}_score")
+      .limit(3)
+    if scores.count === 3
+      scores.each do |score| 
+        day_score += score.day_score if score.day_score
+      end
+    end
+    day_score 
   end
 
   def calculate_awt_by_class(team_class)
@@ -23,16 +56,14 @@ class TeamResults
     cat_time1 = get_category_time(awtm1, awtf1)
     update_day_awt(awtm1, team_class, "M", 1, cat_time1) if awtm1
     update_day_awt(awtf1, team_class, "F", 1, cat_time1) if awtf1
-    update_day_scores(awtm1, team_class, "M", 1, cat_time1) if awtm1
-    update_day_scores(awtf1, team_class, "F", 1, cat_time1) if awtf1
     #day 2
     awtm2 = calculate_awt_by_class_gender(team_class, "M", 2)
     awtf2 = calculate_awt_by_class_gender(team_class, "F", 2) 
     cat_time2 = get_category_time(awtm2, awtf2)
     update_day_awt(awtm2, team_class, "M", 2, cat_time2) if awtm2
     update_day_awt(awtf2, team_class, "F", 2, cat_time2) if awtf2
-    update_day_scores(awtm2, team_class, "M", 2, cat_time2) if awtm2
-    update_day_scores(awtf2, team_class, "F", 2, cat_time2) if awtf2
+    update_day_scores(awtm1, awtm2, cat_time1, cat_time2, team_class, "M") 
+    update_day_scores(awtf1, awtf2, cat_time1, cat_time2, team_class, "F") 
   end
 
   def delete_awt_results
@@ -58,8 +89,27 @@ class TeamResults
     end
   end
 
-  def update_day_scores(awt, team_class, gender, day, cat_time) 
-
+  def update_day_scores(awt1, awt2, cat_time1, cat_time2, team_class, gender) 
+    runners = Runner.where(entryclass: team_class+gender)
+    runners.each do |r| 
+      if (r.classifier1 === "0" && r.float_time1 > 0 && awt1)
+        if r.float_time1 < APP_CONFIG[:max_time]
+          r.day1_score = 60 * (r.float_time1/awt1[:awt])
+        else
+          r.day1_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time1))
+        end
+      end
+      if (r.classifier2 === "0" && r.float_time2 > 0 && awt2)
+        if r.float_time2 < APP_CONFIG[:max_time]
+          r.day2_score = 60 * (r.float_time2/awt2[:awt])
+        else
+          r.day2_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time2))
+        end
+      end
+      if (awt1 || awt2)
+        r.save
+      end
+    end
   end
 
   def get_category_time(m_awt, f_awt)
