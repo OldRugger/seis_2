@@ -50,16 +50,23 @@
       <td valign=top> 
         <table > 
           <%iplace = 1 %>
-          <% teams.each do |result| %>
+          <% teams.each do |team| %>
             <tr>
               <td valign=top><%=iplace.to_s %></td>
-              <% if result.total_score != nil && result.total_score < 9999 && result.total_score > 0.0%>
-                <%score = " (" + result.total_score.round(2).to_s + ")"%> 
+              <% if team.total_score != nil && team.total_score < 9999 && team.total_score > 0.0%>
+                <%score = " (" + team.total_score.round(2).to_s + ")"%> 
               <% else %>
                 <%score = ""%>
               <% end %>
               <td class="team">
-                <b><%= link_to result.name, :action => 'show', :id => result.id %><%=score%></b><br>
+                <b><%= link_to team.name, :action => 'show', :id => team.id %><%=score%></b><br>
+                <% if @day1_hash[team.id] %>
+                  <b><i>Day1:</b></i> <%= @day1_hash[team.id] %>
+                  <br>
+                <% end %>
+                <% if @day2_hash[team.id] %>
+                  <b><i>Day2:</b></i> <%= @day2_hash[team.id] %>
+                <% end %>
               </td>
               <%iplace +=1%>
             </tr>

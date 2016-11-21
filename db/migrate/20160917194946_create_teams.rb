@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration
       t.string :name
       t.string :entryclass
       t.string :JROTC_branch
-      t.string :day1_score
+      t.float :day1_score
       t.float :day2_score
       t.float :total_score
       t.float :sort_score
