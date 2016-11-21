@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def float_time_to_hhmmss(float_time)
-    if (float_time > 0)
+    if (float_time && float_time > 0)
       min = float_time.floor 
       mm = (min % 60).floor
       hh = (min / 60).floor

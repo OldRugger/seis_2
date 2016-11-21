@@ -9,6 +9,11 @@ class RunnersController < ApplicationController
   end
 
   def import
+    if params[:file] == nil 
+      redirect_to runners_url, :flash => { :error => "No input file selected" }
+      return
+    end
+
     ActiveRecord::Base.transaction do
       clear_existing_data
       @added, @skipped = Runner.import(params[:file])

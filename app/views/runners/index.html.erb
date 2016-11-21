@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<p id="error"><%= flash[:error] %></p>
 <table class=runners_header>
   <td id=import_runners>
     <h2>Import Runners</h2>
@@ -46,13 +47,33 @@
         <td><%= runner.gender %></td>
         <td><%= runner.school %></td>
         <td><%= runner.entryclass %></td>
-        <td><%= runner.time1 %></td>
-        <td><%= runner.float_time1 %></td>
+        <td>
+        <% if is_sqlite? %>
+           <%= float_time_to_hhmmss(runner.time1) %>
+          <%= %>
+        <% else %>
+          <%= runner.time1 %>
+        <% end %>
+        </td>
+        <td><%= runner.float_time1.round(3) if runner.float_time1 %></td>
         <td><%= runner.classifier1 %></td>
-        <td><%= runner.time2 %></td>
-        <td><%= runner.float_time2 %></td>
-        <td><%= runner.total_time %></td>
-        <td><%= runner.float_total_time %></td>
+        <td>
+        <% if is_sqlite? %>
+          <%= float_time_to_hhmmss(runner.time2) %>
+        <% else %>
+          <%= runner.time2 %>
+        <% end %>
+        </td>
+        <td><%= runner.float_time2.round(3) if runner.float_time2 %></td>
+        <td>
+        <% if is_sqlite? %>
+           <%= float_time_to_hhmmss(runner.total_time) %>
+          <%= %>
+        <% else %>
+          <%=  runner.total_time %>
+        <% end %>
+        </td>
+        <td><%= runner.float_total_time.round(3) if runner.float_total_time  %></td>
         <td><%= runner.day1_score %></td>
         <td><%= runner.day2_score %></td>
       </tr>
