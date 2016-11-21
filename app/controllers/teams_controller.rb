@@ -2,12 +2,7 @@ class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teams = Team.all
-    @day1_awts = Day1Awt.all
-    @day1_hash = Hash.new
-    @day2_awts = Day2Awt.all
-    @day2_hash = Hash.new
-
+    set_awts_hash
     @isp = Team.where(entryclass: 'ISP').order(:sort_score, :day1_score, :name)
     @isi = Team.where(entryclass: 'ISI').order(:sort_score, :day1_score, :name)
     @isjv = Team.where(entryclass: 'ISJV').order(:sort_score, :day1_score, :name)
@@ -78,17 +73,44 @@ class TeamsController < ApplicationController
   end
 
   def show
-    query = "SELECT firstname, surname, runners.entryclass " + 
-              "FROM team_members " +
-              "JOIN runners " +
-                "on runners.id = team_members.runner_id " +
-              "LEFT JOIN day1_awts " +
-                "on runners.entryclass = day1_awts.entryclass " +
-              "LEFT JOIN day2_awts " +
-                 "on runners.entryclass = day2_awts.entryclass " +
-             "WHERE team_id = " + params[:id] +
-             " ORDER BY runners.surname"
-    @runners =  ActiveRecord::Base.connection.execute(query)
+    @runners = TeamMember.joins(:runner)
+      .select("team_members.team_id, runners.id as runner_id, 
+              runners.firstname  as firstname,
+              runners.surname    as surname,
+              runners.time1      as time1,
+              runners.time2      as time2,
+              runners.day1_score as day1_score,
+              runners.day2_score as day2_score,
+              runners.entryclass as entryclass ")
+      .where(team_id: params[:id]).all
+
+    day1_awts = Day1Awt.all
+    @day1_hash = Hash.new
+    day1_awts.each do |awt|
+      @day1_hash[awt.entryclass] = {awt: float_time_to_hhmmss(awt.awt_float_time), 
+                                    cat: float_time_to_hhmmss(awt.cat_float_time) }
+    end
+    
+    day2_awts = Day2Awt.all
+    @day2_hash = Hash.new
+    day2_awts.each do |awt|
+      @day2_hash[awt.entryclass] = {awt: float_time_to_hhmmss(awt.awt_float_time), 
+                                    cat: float_time_to_hhmmss(awt.cat_float_time) } 
+    end
+  end
+
+  def set_awts_hash
+    day1_awts = Day1Awt.all
+    @day1_hash = Hash.new
+    day1_awts.each do |awt|
+      @day1_hash[awt.entryclass] = float_time_to_hhmmss(awt.awt_float_time)
+    end
+    
+    day2_awts = Day2Awt.all
+    @day2_hash = Hash.new
+    day2_awts.each do |awt|
+      @day2_hash[awt.entryclass] = float_time_to_hhmmss(awt.awt_float_time)
+    end
   end
 
   def import

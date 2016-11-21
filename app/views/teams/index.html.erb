@@ -17,18 +17,26 @@
     <% end %>
   </tr>
   <tr>
-    <% 2.times do %>
-      <td class=awt_cat><b>AWT</b></td>
-      <% @class_list.each do |c| %>
-        <td class=awt_cat>
-          <% if @day1_hash[c] %>
-            <%=@day1_hash[c]%>
-          <% else %>
-            n/a
-          <% end %>
-        </td>
+  <td class=awt_cat><b>AWT</b></td>
+  <% @class_list.each do |c| %>
+    <td class=awt_cat>
+      <% if @day1_hash[c] %>
+        <%=@day1_hash[c]%>
+      <% else %>
+        n/a
       <% end %>
-    <% end %>
+    </td>
+  <% end %>
+  <td class=awt_cat><b>AWT</b></td>
+  <% @class_list.each do |c| %>
+    <td class=awt_cat>
+      <% if @day2_hash[c] %>
+        <%=@day2_hash[c]%>
+      <% else %>
+        n/a
+      <% end %>
+    </td>
+  <% end %>
   </tr>
 
 </table>
