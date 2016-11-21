@@ -52,10 +52,42 @@
   <% @runners.each do |runner| %>
     <tr>
       <td class="cat3">
-        <b> <%= "#{runner['firstname']} #{runner['surname']}" %> </b>
+        <b> <%= "#{runner.firstname} #{runner.surname}" %> </b>
       </td>
       <td class="cat3">
-        <%= "#{runner['entryclass']}" %>
+        <%= runner.entryclass %>
+      </td>
+      <td class="cat3c">
+        <% if is_sqlite? %>
+          <%= float_time_to_hhmmss(runner.time1) %>
+        <% else %>
+          <%= runner.time1 %>
+        <% end %>
+      </td>
+      <td class="cat3c">
+        <%= @day1_hash[runner.entryclass][:awt] %>
+      </td>
+      <td class="cat3c">
+        <%= @day1_hash[runner.entryclass][:cat] %>
+      </td>
+      <td class="cat3c">
+        <%= runner.day1_score.round(3) %>
+      </td>
+      <td class="cat3c">
+        <% if is_sqlite? %>
+          <%= float_time_to_hhmmss(runner.time2) %>
+        <% else %>
+          <%= runner.time2 %>
+        <% end %>
+      </td>
+      <td class="cat3c">
+        <%= @day2_hash[runner.entryclass][:awt] %>
+      </td>
+      <td class="cat3c">
+        <%= @day2_hash[runner.entryclass][:cat] %>
+      </td>
+      <td class="cat3c">
+        <%= runner.day2_score.round(3) %>
       </td>
     </tr>
   <% end %>

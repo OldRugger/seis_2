@@ -21,7 +21,6 @@ class TeamResults
   def update_team_scores
     sortvalue = 9999.0
     teams = Team.all
-    #update day 1 scores
     teams.each do |team|
       day1_score = get_team_day_scores(team, 1)
       day2_score = get_team_day_scores(team, 2)
@@ -37,7 +36,7 @@ class TeamResults
     day_score = 0.0
     scores = TeamMember.joins(:runner)
       .select("team_members.team_id,runners.id as runner_id,runners.day#{day}_score as day_score")
-      .where(team_id: team.id)
+      .where(team_id: team.id).where("runners.day#{day}_score > ?", 0.0)
       .order("runners.day#{day}_score")
       .limit(3)
     if scores.count === 3
@@ -199,18 +198,6 @@ class TeamResults
       float_Time = mm + (ss/60.0)
     end
     {'float' => float_Time, 'time' => time}
-  end
-
-  def float_time_to_hhmmss(float_time)
-    if (float_time > 0)
-      min = float_time.floor 
-      mm = (min % 60).floor
-      hh = (min / 60).floor
-      ss = ((float_time - min) * 60).floor
-      hhmmss = hh.to_s + ":" + mm.to_s + ":" + ss.to_s
-    else
-      hhmmss = "00:00:00"
-    end
   end
 
 end
