@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <table class=teams_table >
-  <tr id=awt_bar> 
-    <th class="awt" colspan=18 >Average Weighted Time</th>
+  <tr id=awt_bar>
+    <th class="awt" colspan=18 >
+      <%= link_to "Average Weighted Time", controller: "awt" %>
+    </th>
   </tr>
-  <tr> 
+  <tr class=header_row>
     <td class=awt_cat colspan=9><b>Day 1</b></td>
     <td class=awt_cat colspan=9><b>Day 2</b></td>
   </tr>
@@ -21,7 +23,7 @@
   <% @class_list.each do |c| %>
     <td class=awt_cat>
       <% if @day1_hash[c] %>
-        <%=@day1_hash[c]%>
+        <%=@day1_hash[c][:awt]%>
       <% else %>
         n/a
       <% end %>
@@ -31,7 +33,7 @@
   <% @class_list.each do |c| %>
     <td class=awt_cat>
       <% if @day2_hash[c] %>
-        <%=@day2_hash[c]%>
+        <%=@day2_hash[c][:awt]%>
       <% else %>
         n/a
       <% end %>
@@ -55,14 +57,14 @@
   <tr>
   <% @classes.each do  |c, teams| %>
     <%if (teams.count > 0)%>
-      <td valign=top> 
-        <table > 
+      <td valign=top>
+        <table >
           <%iplace = 1 %>
           <% teams.each do |team| %>
             <tr>
               <td valign=top><%=iplace.to_s %></td>
               <% if team.total_score != nil && team.total_score < 9999 && team.total_score > 0.0%>
-                <%score = " (" + team.total_score.round(2).to_s + ")"%> 
+                <%score = " (" + team.total_score.round(2).to_s + ")"%>
               <% else %>
                 <%score = ""%>
               <% end %>
@@ -78,8 +80,8 @@
               </td>
               <%iplace +=1%>
             </tr>
-          <% end %>   
-         </table> 
+          <% end %>
+         </table>
       </td>
     <% end %>
   <% end %>

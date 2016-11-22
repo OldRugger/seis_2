@@ -74,8 +74,8 @@
         <% end %>
         </td>
         <td><%= runner.float_total_time.round(3) if runner.float_total_time  %></td>
-        <td><%= runner.day1_score %></td>
-        <td><%= runner.day2_score %></td>
+        <td><%= runner.day1_score.round(3) if runner.day1_score %></td>
+        <td><%= runner.day2_score.round(3) if runner.day2_score %></td>
       </tr>
     <% end %>
   </tbody>
