@@ -1,28 +1,38 @@
-== README
+== GAOC SEIS Scoring System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is the Georgia Orienteering Club's implementation of the Average Weighted Time (AWT) team scoring system used for the Southeast Interscholastic Championships.  The system is based on the interscholastic scoring rules published by Orienteering USA.  It is also based, in part, on a spreadsheet developed by the North Texas Orienteering Associatation that server the same perpose.  The system uses input files from 
 
-Things you may want to cover:
+===Scoring Rules
 
-* Ruby version
+====AWT 
+(Class AWT) used within the Team score calculation for successful runners
 
-* System dependencies
+====CAT AWT 
+(Category AWT) used within the Team score calculation for DNF, MP, Disq runners
 
-* Configuration
+====Scoring
+Scores for each race are computed as follows:
+1. For each interscholastic class, define AWT (the average winning time) as the average of the times of the top three competitors in that class who are competing in a team category.
+1. For each competitor in each class with a valid result, their score is computed as 60*(competitor’s time)/ (AWT for the class).
+1. For competitors with an OT, MP, DNF or DSQ result, their score will be the larger of 10+60*(course time limit)/ (AWT for the male class) and 10+60*(course time limit)/ (AWT for the female class) for that team category.
+====Team Scoring 
+1. The best three scores each day for each team are combined for a team score.
+1. Lowest overall team score wins.
 
-* Database creation
+===Input Files
+====Initial Load File 
+* OE013
+====Team Definition 
+* CSV file with the following columns: Database ID,Team,Class,JROTC,Branch,School
+  * 'Database ID' is the OE Database ID. This field is used to tie everything together.  This field must be defined in OE. 
+  * Team name - team names should be unique
+  * Class - ISV, ISJV, ISI, ISP 
+  * JROTC - yes/no
+  * Branch - if JROTC
+  * School 
+The file should be sorted by 'Team', 'Class'
+====Results
+* OE0010 - two day results. 
 
-* Database initialization
+==
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
