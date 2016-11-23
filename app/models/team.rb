@@ -19,7 +19,7 @@ class Team < ActiveRecord::Base
   end
 
   private
-    def self.create_team(row) 
+    def self.create_team(row)
       rowclass = row['Class']
       case rowclass
       when 'ISPM', 'ISPF'
@@ -31,7 +31,6 @@ class Team < ActiveRecord::Base
       when 'ISVM', 'ISVF'
         entryclass = 'ISV'
       end
-      puts "creaate team #{row['Team']}"
       Team.create(name: row['Team'],
                   entryclass: entryclass,
                   JROTC_branch: row['Branch'],
@@ -40,7 +39,7 @@ class Team < ActiveRecord::Base
 
     def self.assign_member(team, row)
       runner = Runner.where(database_id: row["Database ID"]).first
-      if runner 
+      if runner
         assign_runner_to_team(team, runner, row)
       else
         raise "error: Runner with database_id #{row["Database ID"]} not found"
@@ -53,7 +52,7 @@ class Team < ActiveRecord::Base
       raise "error: invalid entry class #{row}" unless runner.entryclass.include? team.entryclass
       raise "error: runner first name does not match #{row}" unless runner.firstname = row['First']
       raise "error: runner last name does not match #{row}" unless runner.surname = row['Last']
-      TeamMember.create(team_id: team.id, 
+      TeamMember.create(team_id: team.id,
                         runner_id: runner.id)
       #
     end

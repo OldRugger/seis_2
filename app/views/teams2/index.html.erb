@@ -1,0 +1,156 @@
+<style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    order-spacing: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .table #awt_bar {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: DarkRed;
+  }
+  .table #team_bar {
+    background-color: DarkRed;
+  }
+  .table #awt_line {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  .table #awt_bar .awt {
+    color: white;
+  }
+  .table #team_bar .awt {
+    color: white;
+  }
+  .table .awt_cat {
+    text-align: center;
+  }
+  .table .awt_cat_b {
+    text-align: center;
+    font-weight: bold;
+  }
+  .table .header_row {
+    background-color: LightGoldenRodYellow;
+  }
+  .table .team_name {
+    color: red;
+    font-weight: bold;
+  }
+  .table .detail {
+    font-size: 90%;
+  }
+</style>
+<table class=table>
+  <tr id=awt_bar>
+    <th class="awt" colspan=18 >
+      Average Weighted Time
+    </th>
+  </tr>
+  <tr class=header_row>
+    <td class=awt_cat colspan=9><b>Day 1</b></td>
+    <td class=awt_cat colspan=9><b>Day 2</b></td>
+  </tr>
+  <tr>
+    <% 2.times do %>
+      <td class=awt_cat_b>Class</td>
+      <% @class_list.each do |c| %>
+        <td class=awt_cat><%=c%></td>
+      <% end %>
+    <% end %>
+  </tr>
+  <% 3.times do |n| %>
+    <% runner = n + 1 %>
+    <tr>
+      <% 2.times do |d| %>
+        <td class=awt_cat_b><%= "Runner #{runner}" %> </td>
+        <% @class_list.each do |c| %>
+          <td>
+            <%= @awt[d+1]["#{c}#{runner}"] || "n/a*" %>
+          </td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+  <tr id=awt_line>
+    <% 2.times do |d| %>
+      <td class=awt_cat_b> AWT </td>
+      <% @class_list.each do |c| %>
+        <td>
+          <%= @awt[d+1][c] || "n/a*" %>
+        </td>
+      <% end %>
+      </td>
+    <% end %>
+  </tr>
+</table>
+<br>
+<table class=table>
+  <tr id=team_bar>
+    <th class="awt" colspan=5>Team Results</th>
+  </tr>
+  <tr class=header_row>
+  <% @classes.each do  |c, teams| %>
+      <%if (teams.count > 0)%>
+        <th align = center><%= c.upcase %></th>
+      <% end %>
+  <% end %>
+  </tr>
+  <% @classes.each do  |c, teams| %>
+    <% if (teams.count > 0)%>
+      <% iplace = 1 %>
+      <td valign = top>
+        <table>
+          <% teams.each do |team| %>
+            <tr>
+              <td valign=top><%=iplace.to_s %></td>
+              <% if team.total_score != nil && team.total_score < 9999 && team.total_score > 0.0%>
+                <%score = " (" + team.total_score.round(2).to_s + ")"%>
+              <% else %>
+                <%score = ""%>
+              <% end %>
+              <td>
+                <div class=team_name><%= team.name %> <%= score %> </div>
+                <b><i><%= team.school %></i></b>
+                <% if team.day1_score < 9999 %>
+                  - Day 1 (<%=team.day1_score.round(3) %>)
+                <% end %>
+                <% if team.day2_score < 9999 %>
+                  - Day 2 (<%=team.day2_score.round(3) %>)
+                <% end %>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                  <% @runners.each do |r| %>
+                    <% if (r.team_id == team.id) %>
+                      <tr>
+                        <td class=detail>
+                          <%= "#{r.firstname} #{r.surname}" %>
+                        </td>
+                        <td class=detail>
+                          <% time = is_sqlite? ? float_time_to_hhmmss(r.time1) : r.time1 %>
+                          <%= "#{time}(#{r.day1_score.round(3) if r.day1_score})" %>
+                        </td>
+                        <td class=detail>
+                          <% time = is_sqlite? ? float_time_to_hhmmss(r.time2) : r.time1 %>
+                          <%= "#{time}(#{r.day2_score.round(3) if r.day2_score})" %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                </table>
+              </td>
+            </tr>
+            <% iplace += 1 %>
+          <% end %>
+         </table>
+      </td>
+    <% end %>
+  <% end %>
+
+
+</table>

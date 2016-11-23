@@ -10,6 +10,8 @@ Seis2::Application.routes.draw do
 
   get "awt" => "awt#index"
 
+  get "teams2" => "teams2#index"
+
   get "awards" => "awards#index"
 
   root :to => 'home#index'
