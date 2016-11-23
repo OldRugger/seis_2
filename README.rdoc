@@ -33,6 +33,8 @@ Scores for each race are computed as follows:
 The file should be sorted by 'Team', 'Class'
 ====Results
 * OE0010 - two day results. 
+====Sample data
+Examples of all three files can be found in the testdata directory
 
 ===Install
 This system was developed on Windows 10 with Rails version 4.0.2 and Ruby version 2.1.8p440.  To keep it simple the data store is Sqlite. The system should run fine in any Rails v environment.  If you are trying to deploy to a Windows machine, I recommend [Rails Installer](http://railsinstaller.org/en).  
@@ -57,7 +59,7 @@ By default the server will be listening on port 3000.  You can change that with 
 ====Processing results. 
 * Copy the results file (OE0010) in the the results directory (configurable).  The file will be auto detected and processed.  Caution, the file will be deleted at the end of processing. 
 
-===Pages
+===Output Pages
 ====runners 
 This page has a detail listing of all runners imported into they system
 ====Teams 
