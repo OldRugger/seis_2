@@ -1,6 +1,8 @@
 == GAOC SEIS Scoring System
 
-This application is the Georgia Orienteering Club's implementation of the Average Weighted Time (AWT) team scoring system used for the Southeast Interscholastic Championships.  The system is based on the interscholastic scoring rules published by Orienteering USA.  It is also based, in part, on a spreadsheet developed by the North Texas Orienteering Associatation that server the same perpose.  The system uses input files from 
+This application is the Georgia Orienteering Club's implementation of the Average Weighted Time (AWT) team scoring system used for the Southeast Interscholastic Championships.  The system is based on the interscholastic scoring rules published by Orienteering USA.  It is also based, in part, on a spreadsheet developed by the North Texas Orienteering Associatation that server the same perpose.  The system uses input files from Sports Software OE system. 
+
+[Sample results file](http://htmlpreview.github.io/?https://github.com/OldRugger/seis_2/blob/master/testdata/test_results.html)
 
 ===Scoring Rules
 
