@@ -50,4 +50,20 @@ At this point you should be ready to go.  If you want to use the default rails w
 By default the server will be listening on port 3000.  You can change that with the -p option. 
 
 ===Processing
+====Import Runners \ Teams
+* From the main page, select "Import Runners / Teams"
+* From the Runners page select the Import Runners file (OE0013), then select Import_Runners.  
+* Import teams, select the csv team definition file, then select Import_Teams.
+====Processing results. 
+* Copy the results file (OE0010) in the the results directory (configurable).  The file will be auto detected and processed.  Caution, the file will be deleted at the end of processing. 
+
+===Pages
+====runners 
+This page has a detail listing of all runners imported into they system
+====Teams 
+Current team results
+====Team2
+More detailed team results.  All styling is included in the file.  The page source can be copied without loss of formatting.  
+====AWT
+Detailed information on the Average Weighted Time calculation 
 
