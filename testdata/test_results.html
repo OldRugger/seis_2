@@ -1,0 +1,3429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teamscore</title>
+  <link href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/home.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/runners.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/scaffolds.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/team_members.css?body=1" media="all" rel="stylesheet" />
+<link href="/assets/teams.css?body=1" media="all" rel="stylesheet" />
+  <script src="/assets/jquery.js?body=1"></script>
+<script src="/assets/jquery_ujs.js?body=1"></script>
+<script src="/assets/turbolinks.js?body=1"></script>
+<script src="/assets/application.js?body=1"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="fDkJo5nT9Do6fbdNp2msLZArhhlOe8nvP5rcc8Neuj0=" name="csrf-token" />
+  <meta http-equiv="refresh" content="120">
+</head>
+<body style="background-color:#f3f3f3">
+<h1 align=center>2017 Southeast Interscholastic Championships</h1>
+<style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    order-spacing: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .table #awt_bar {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: DarkRed;
+  }
+  .table #team_bar {
+    background-color: DarkRed;
+  }
+  .table #awt_line {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  .table #awt_bar .awt {
+    color: white;
+  }
+  .table #team_bar .awt {
+    color: white;
+  }
+  .table .awt_cat {
+    text-align: center;
+  }
+  .table .awt_cat_b {
+    text-align: center;
+    font-weight: bold;
+  }
+  .table .header_row {
+    background-color: LightGoldenRodYellow;
+  }
+  .table .team_name {
+    color: red;
+    font-weight: bold;
+  }
+  .table .detail {
+    font-size: 90%;
+  }
+</style>
+<table class=table>
+  <tr id=awt_bar>
+    <th class="awt" colspan=18 >
+      Average Weighted Time
+    </th>
+  </tr>
+  <tr class=header_row>
+    <td class=awt_cat colspan=9><b>Day 1</b></td>
+    <td class=awt_cat colspan=9><b>Day 2</b></td>
+  </tr>
+  <tr>
+      <td class=awt_cat_b>Class</td>
+        <td class=awt_cat>ISVM</td>
+        <td class=awt_cat>ISVF</td>
+        <td class=awt_cat>ISJVM</td>
+        <td class=awt_cat>ISJVF</td>
+        <td class=awt_cat>ISIM</td>
+        <td class=awt_cat>ISIF</td>
+        <td class=awt_cat>ISPM</td>
+        <td class=awt_cat>ISPF</td>
+      <td class=awt_cat_b>Class</td>
+        <td class=awt_cat>ISVM</td>
+        <td class=awt_cat>ISVF</td>
+        <td class=awt_cat>ISJVM</td>
+        <td class=awt_cat>ISJVF</td>
+        <td class=awt_cat>ISIM</td>
+        <td class=awt_cat>ISIF</td>
+        <td class=awt_cat>ISPM</td>
+        <td class=awt_cat>ISPF</td>
+  </tr>
+    <tr>
+        <td class=awt_cat_b>Runner 1 </td>
+          <td>
+            0:54:11
+          </td>
+          <td>
+            1:08:42
+          </td>
+          <td>
+            0:32:28
+          </td>
+          <td>
+            1:07:48
+          </td>
+          <td>
+            0:26:20
+          </td>
+          <td>
+            0:36:14
+          </td>
+          <td>
+            n/a*
+          </td>
+          <td>
+            n/a*
+          </td>
+        <td class=awt_cat_b>Runner 1 </td>
+          <td>
+            0:56:33
+          </td>
+          <td>
+            1:02:40
+          </td>
+          <td>
+            0:41:40
+          </td>
+          <td>
+            1:02:34
+          </td>
+          <td>
+            0:32:56
+          </td>
+          <td>
+            0:44:03
+          </td>
+          <td>
+            n/a*
+          </td>
+          <td>
+            n/a*
+          </td>
+    </tr>
+    <tr>
+        <td class=awt_cat_b>Runner 2 </td>
+          <td>
+            0:57:39
+          </td>
+          <td>
+            1:16:42
+          </td>
+          <td>
+            0:35:22
+          </td>
+          <td>
+            1:11:17
+          </td>
+          <td>
+            0:30:16
+          </td>
+          <td>
+            0:49:58
+          </td>
+          <td>
+            n/a*
+          </td>
+          <td>
+            n/a*
+          </td>
+        <td class=awt_cat_b>Runner 2 </td>
+          <td>
+            0:56:56
+          </td>
+          <td>
+            1:10:03
+          </td>
+          <td>
+            0:45:03
+          </td>
+          <td>
+            1:11:59
+          </td>
+          <td>
+            0:34:21
+          </td>
+          <td>
+            1:09:50
+          </td>
+          <td>
+            n/a*
+          </td>
+          <td>
+            n/a*
+          </td>
+    </tr>
+    <tr>
+        <td class=awt_cat_b>Runner 3 </td>
+          <td>
+            0:58:14
+          </td>
+          <td>
+            1:19:24
+          </td>
+          <td>
+            0:35:56
+          </td>
+          <td>
+            1:20:41
+          </td>
+          <td>
+            0:33:16
+          </td>
+          <td>
+            0:55:01
+          </td>
+          <td>
+            n/a*
+          </td>
+          <td>
+            n/a*
+          </td>
+        <td class=awt_cat_b>Runner 3 </td>
+          <td>
+            1:00:10
+          </td>
+          <td>
+            1:13:47
+          </td>
+          <td>
+            0:46:28
+          </td>
+          <td>
+            1:17:47
+          </td>
+          <td>
+            0:40:04
+          </td>
+          <td>
+            1:38:23
+          </td>
+          <td>
+            n/a*
+          </td>
+          <td>
+            n/a*
+          </td>
+    </tr>
+  <tr id=awt_line>
+      <td class=awt_cat_b> AWT </td>
+        <td>
+          0:56:41
+        </td>
+        <td>
+          1:14:56
+        </td>
+        <td>
+          0:34:35
+        </td>
+        <td>
+          1:13:15
+        </td>
+        <td>
+          0:29:57
+        </td>
+        <td>
+          0:47:04
+        </td>
+        <td>
+          n/a*
+        </td>
+        <td>
+          n/a*
+        </td>
+      </td>
+      <td class=awt_cat_b> AWT </td>
+        <td>
+          0:57:53
+        </td>
+        <td>
+          1:08:50
+        </td>
+        <td>
+          0:44:24
+        </td>
+        <td>
+          1:10:47
+        </td>
+        <td>
+          0:35:47
+        </td>
+        <td>
+          1:10:45
+        </td>
+        <td>
+          n/a*
+        </td>
+        <td>
+          n/a*
+        </td>
+      </td>
+  </tr>
+</table>
+<br>
+<table class=table>
+  <tr id=team_bar>
+    <th class="awt" colspan=5>Team Results</th>
+  </tr>
+  <tr class=header_row>
+        <th align = center>ISV</th>
+        <th align = center>ISJV</th>
+        <th align = center>ISI</th>
+        <th align = center>JROTC</th>
+  </tr>
+      <td valign = top>
+        <table>
+            <tr>
+              <td valign=top>1</td>
+              <td>
+                <div class=team_name>Hogwarts Varsity Gold  (354.08) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (179.78)
+                  - Day 2 (174.303)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Isaac Doe_101
+                        </td>
+                        <td class=detail>
+                          0:57:39(61.017)
+                        </td>
+                        <td class=detail>
+                          1:00:10(62.367)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Michael Doe_124
+                        </td>
+                        <td class=detail>
+                          0:54:11(57.348)
+                        </td>
+                        <td class=detail>
+                          0:56:33(58.618)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Alisia Doe_125
+                        </td>
+                        <td class=detail>
+                          1:19:24(63.577)
+                        </td>
+                        <td class=detail>
+                          1:10:03(61.061)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Andrew Doe_126
+                        </td>
+                        <td class=detail>
+                          1:00:02(63.54)
+                        </td>
+                        <td class=detail>
+                          1:17:39(80.489)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Aminah Doe_131
+                        </td>
+                        <td class=detail>
+                          1:16:42(61.415)
+                        </td>
+                        <td class=detail>
+                          1:02:40(54.625)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>2</td>
+              <td>
+                <div class=team_name>Xavier  Varsity  (417.77) </div>
+                <b><i>Xavier  HS</i></b>
+                  - Day 1 (211.83)
+                  - Day 2 (205.943)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Garrett Doe_10
+                        </td>
+                        <td class=detail>
+                          1:42:34(108.557)
+                        </td>
+                        <td class=detail>
+                          1:25:13(88.333)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Stephen Doe_14
+                        </td>
+                        <td class=detail>
+                          1:47:09(113.408)
+                        </td>
+                        <td class=detail>
+                          1:36:57(100.495)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Taylor Doe_17
+                        </td>
+                        <td class=detail>
+                          1:08:42(55.009)
+                        </td>
+                        <td class=detail>
+                          1:25:00(74.092)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jordan Doe_21
+                        </td>
+                        <td class=detail>
+                          0:58:14(61.635)
+                        </td>
+                        <td class=detail>
+                          0:56:56(59.015)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zachary Doe_24
+                        </td>
+                        <td class=detail>
+                          1:29:56(95.186)
+                        </td>
+                        <td class=detail>
+                          1:10:16(72.836)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>3</td>
+              <td>
+                <div class=team_name>Liberty Varsity #1  (450.47) </div>
+                <b><i>Liberty HS</i></b>
+                  - Day 1 (230.389)
+                  - Day 2 (220.077)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Adam Doe_142
+                        </td>
+                        <td class=detail>
+                          1:22:41(87.513)
+                        </td>
+                        <td class=detail>
+                          1:20:13(83.15)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Haley Doe_146
+                        </td>
+                        <td class=detail>
+                          1:27:31(70.076)
+                        </td>
+                        <td class=detail>
+                          1:32:32(80.659)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zachary Doe_151
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Gazaille Doe_152
+                        </td>
+                        <td class=detail>
+                          1:08:47(72.801)
+                        </td>
+                        <td class=detail>
+                          1:03:49(66.15)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jake Doe_153
+                        </td>
+                        <td class=detail>
+                          1:32:10(97.55)
+                        </td>
+                        <td class=detail>
+                          1:10:41(73.268)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>4</td>
+              <td>
+                <div class=team_name>Hogwarts Varsity Silver  (472.49) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (260.122)
+                  - Day 2 (212.371)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Anant Doe_102
+                        </td>
+                        <td class=detail>
+                          1:32:19(97.709)
+                        </td>
+                        <td class=detail>
+                          1:14:08(76.844)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brittany Doe_121
+                        </td>
+                        <td class=detail>
+                          1:40:58(80.845)
+                        </td>
+                        <td class=detail>
+                          1:13:47(64.315)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Richard Doe_127
+                        </td>
+                        <td class=detail>
+                          1:17:04(81.568)
+                        </td>
+                        <td class=detail>
+                          1:08:42(71.212)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>5</td>
+              <td>
+                <div class=team_name>Hornets Gold V  (561.15) </div>
+                <b><i>Buchanan HS</i></b>
+                  - Day 1 (312.603)
+                  - Day 2 (248.552)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_232
+                        </td>
+                        <td class=detail>
+                          1:05:59()
+                        </td>
+                        <td class=detail>
+                          1:07:35(70.055)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Sterling Doe_233
+                        </td>
+                        <td class=detail>
+                          1:50:30(116.954)
+                        </td>
+                        <td class=detail>
+                          1:24:16(87.348)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Lacy Doe_235
+                        </td>
+                        <td class=detail>
+                          2:04:51(99.969)
+                        </td>
+                        <td class=detail>
+                          2:29:46(130.547)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Isaac Doe_240
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Justin Doe_244
+                        </td>
+                        <td class=detail>
+                          1:30:24(95.68)
+                        </td>
+                        <td class=detail>
+                          1:27:56(91.149)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>6</td>
+              <td>
+                <div class=team_name>Bel-Air V  (566.17) </div>
+                <b><i>Bel-Air Academy</i></b>
+                  - Day 1 (333.152)
+                  - Day 2 (233.018)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Jamie Doe_191
+                        </td>
+                        <td class=detail>
+                          2:37:26()
+                        </td>
+                        <td class=detail>
+                          1:15:27(65.768)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Josue Doe_192
+                        </td>
+                        <td class=detail>
+                          1:31:25(96.756)
+                        </td>
+                        <td class=detail>
+                          1:18:06(80.956)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Austin Doe_195
+                        </td>
+                        <td class=detail>
+                          1:43:04(109.087)
+                        </td>
+                        <td class=detail>
+                          1:23:15(86.294)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Austin Doe_204
+                        </td>
+                        <td class=detail>
+                          2:00:17(127.309)
+                        </td>
+                        <td class=detail>
+                          1:49:18(113.297)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Juan Doe_205
+                        </td>
+                        <td class=detail>
+                          2:01:11(128.261)
+                        </td>
+                        <td class=detail>
+                          1:40:28(104.141)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>7</td>
+              <td>
+                <div class=team_name>Hornets Blue V  (571.78) </div>
+                <b><i>Buchanan HS</i></b>
+                  - Day 1 (278.959)
+                  - Day 2 (292.822)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Noah Doe_237
+                        </td>
+                        <td class=detail>
+                          1:36:20(101.96)
+                        </td>
+                        <td class=detail>
+                          2:56:13(182.661)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Mathew Doe_238
+                        </td>
+                        <td class=detail>
+                          1:42:35(108.575)
+                        </td>
+                        <td class=detail>
+                          1:54:49(119.015)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Dayzhana Doe_239
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          2:13:41(116.528)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Alissa Doe_241
+                        </td>
+                        <td class=detail>
+                          1:49:36(87.758)
+                        </td>
+                        <td class=detail>
+                          1:46:55(93.196)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zackary Doe_245
+                        </td>
+                        <td class=detail>
+                          1:24:19(89.241)
+                        </td>
+                        <td class=detail>
+                          1:20:10(83.098)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>8</td>
+              <td>
+                <div class=team_name>Sunnydale  V  (594.67) </div>
+                <b><i>Sunnydale  HS</i></b>
+                  - Day 1 (335.41)
+                  - Day 2 (259.263)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Ryan Doe_48
+                        </td>
+                        <td class=detail>
+                          1:36:24(102.031)
+                        </td>
+                        <td class=detail>
+                          1:09:37(72.162)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brenda Doe_49
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brandon Doe_50
+                        </td>
+                        <td class=detail>
+                          1:24:01(88.924)
+                        </td>
+                        <td class=detail>
+                          1:36:20(99.856)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Cody Doe_51
+                        </td>
+                        <td class=detail>
+                          2:16:29(144.455)
+                        </td>
+                        <td class=detail>
+                          1:24:10(87.244)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>9</td>
+              <td>
+                <div class=team_name>Chilton GREEN  (597.91) </div>
+                <b><i>Chilton HS</i></b>
+                  - Day 1 (312.319)
+                  - Day 2 (285.592)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Blake Doe_59
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Kade Doe_61
+                        </td>
+                        <td class=detail>
+                          1:30:58(96.28)
+                        </td>
+                        <td class=detail>
+                          1:40:43(104.4)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brennan Doe_63
+                        </td>
+                        <td class=detail>
+                          1:56:15(123.04)
+                        </td>
+                        <td class=detail>
+                          1:37:47(101.359)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          David Doe_64
+                        </td>
+                        <td class=detail>
+                          1:27:52(92.999)
+                        </td>
+                        <td class=detail>
+                          1:17:01(79.833)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>10</td>
+              <td>
+                <div class=team_name>Westdale  Bears  (609.99) </div>
+                <b><i>Westdale  HS</i></b>
+                  - Day 1 (344.406)
+                  - Day 2 (265.586)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Steven Doe_26
+                        </td>
+                        <td class=detail>
+                          1:17:51(82.397)
+                        </td>
+                        <td class=detail>
+                          1:23:10(86.208)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Tyler Doe_28
+                        </td>
+                        <td class=detail>
+                          2:38:13(167.458)
+                        </td>
+                        <td class=detail>
+                          1:51:46(115.854)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Madison Doe_29
+                        </td>
+                        <td class=detail>
+                          2:01:25()
+                        </td>
+                        <td class=detail>
+                          1:56:16(101.346)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Christian Doe_34
+                        </td>
+                        <td class=detail>
+                          1:29:20(94.551)
+                        </td>
+                        <td class=detail>
+                          1:23:38(86.692)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jacob Doe_40
+                        </td>
+                        <td class=detail>
+                          2:49:42(179.612)
+                        </td>
+                        <td class=detail>
+                          1:29:25(92.686)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>11</td>
+              <td>
+                <div class=team_name>Degrassi  Varsity  (648.08) </div>
+                <b><i>Degrassi  HS</i></b>
+                  - Day 1 (357.336)
+                  - Day 2 (290.74)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          John Doe_166
+                        </td>
+                        <td class=detail>
+                          1:17:26(81.956)
+                        </td>
+                        <td class=detail>
+                          1:40:52(104.555)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Melissa Doe_175
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jalen Doe_178
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_180
+                        </td>
+                        <td class=detail>
+                          2:41:29(170.915)
+                        </td>
+                        <td class=detail>
+                          1:43:39(107.44)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Colin Doe_181
+                        </td>
+                        <td class=detail>
+                          1:38:42(104.465)
+                        </td>
+                        <td class=detail>
+                          1:15:58(78.745)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>12</td>
+              <td>
+                <div class=team_name>Beacon Town 1  (728.15) </div>
+                <b><i>Beacon Town HS</i></b>
+                  - Day 1 (423.187)
+                  - Day 2 (304.958)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Dylan Doe_266
+                        </td>
+                        <td class=detail>
+                          2:53:26(183.563)
+                        </td>
+                        <td class=detail>
+                          1:47:19()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Andrew Doe_267
+                        </td>
+                        <td class=detail>
+                          2:36:05(165.2)
+                        </td>
+                        <td class=detail>
+                          1:49:50(113.85)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Chadron Doe_271
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Ryan Doe_275
+                        </td>
+                        <td class=detail>
+                          2:09:45()
+                        </td>
+                        <td class=detail>
+                          2:03:48(128.327)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Dylan Doe_280
+                        </td>
+                        <td class=detail>
+                          1:10:19(74.424)
+                        </td>
+                        <td class=detail>
+                          1:00:34(62.781)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>13</td>
+              <td>
+                <div class=team_name>Glenbrook North V  (320.11) </div>
+                <b><i>Glenbrook North HS</i></b>
+                  - Day 2 (320.109)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Christian Doe_283
+                        </td>
+                        <td class=detail>
+                          3:07:59()
+                        </td>
+                        <td class=detail>
+                          1:55:16(119.482)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          John Doe_285
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          1:42:53(106.646)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Joshua Doe_288
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Todd Doe_293
+                        </td>
+                        <td class=detail>
+                          1:37:18(102.983)
+                        </td>
+                        <td class=detail>
+                          1:30:40(93.982)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>14</td>
+              <td>
+                <div class=team_name>Sunnydale  V2  </div>
+                <b><i>Sunnydale  HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Zachery Doe_45
+                        </td>
+                        <td class=detail>
+                          2:04:19(131.578)
+                        </td>
+                        <td class=detail>
+                          2:21:45(146.933)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Colton Doe_52
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Joey Doe_53
+                        </td>
+                        <td class=detail>
+                          1:32:56(98.361)
+                        </td>
+                        <td class=detail>
+                          1:17:13(80.04)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+         </table>
+      </td>
+      <td valign = top>
+        <table>
+            <tr>
+              <td valign=top>1</td>
+              <td>
+                <div class=team_name>Hogwarts JV Gold  (360.76) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (176.052)
+                  - Day 2 (184.709)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Derrick Doe_104
+                        </td>
+                        <td class=detail>
+                          0:32:28(56.319)
+                        </td>
+                        <td class=detail>
+                          0:46:28(62.801)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Chanda Doe_112
+                        </td>
+                        <td class=detail>
+                          1:11:17(58.385)
+                        </td>
+                        <td class=detail>
+                          1:11:59(61.022)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Ortez Doe_95
+                        </td>
+                        <td class=detail>
+                          0:35:56(62.332)
+                        </td>
+                        <td class=detail>
+                          0:45:03(60.886)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Dustin Doe_97
+                        </td>
+                        <td class=detail>
+                          0:35:22(61.349)
+                        </td>
+                        <td class=detail>
+                          1:01:10(82.668)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>2</td>
+              <td>
+                <div class=team_name>Hogwarts JV Silv  (474.13) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (248.585)
+                  - Day 2 (225.544)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Shania Doe_122
+                        </td>
+                        <td class=detail>
+                          2:04:41(102.122)
+                        </td>
+                        <td class=detail>
+                          1:35:17(80.774)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Warren Doe_130
+                        </td>
+                        <td class=detail>
+                          0:38:47(67.276)
+                        </td>
+                        <td class=detail>
+                          1:05:27(88.457)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Shallah Doe_98
+                        </td>
+                        <td class=detail>
+                          0:45:39(79.187)
+                        </td>
+                        <td class=detail>
+                          0:41:40(56.313)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>3</td>
+              <td>
+                <div class=team_name>Liberty JV #2  (521.54) </div>
+                <b><i>Liberty HS</i></b>
+                  - Day 1 (269.884)
+                  - Day 2 (251.653)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Javier Doe_140
+                        </td>
+                        <td class=detail>
+                          1:04:11(111.336)
+                        </td>
+                        <td class=detail>
+                          1:18:55(106.657)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jacob Doe_143
+                        </td>
+                        <td class=detail>
+                          0:42:00(72.856)
+                        </td>
+                        <td class=detail>
+                          0:55:29(74.987)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Caleb Doe_147
+                        </td>
+                        <td class=detail>
+                          1:10:22(122.062)
+                        </td>
+                        <td class=detail>
+                          1:10:16(94.967)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Johnson Doe_150
+                        </td>
+                        <td class=detail>
+                          1:29:37(155.455)
+                        </td>
+                        <td class=detail>
+                          1:53:22(153.217)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jadie Doe_159
+                        </td>
+                        <td class=detail>
+                          0:49:24(85.692)
+                        </td>
+                        <td class=detail>
+                          1:00:27(81.699)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>4</td>
+              <td>
+                <div class=team_name>Bel-Air JV  (600.37) </div>
+                <b><i>Bel-Air Academy</i></b>
+                  - Day 1 (312.058)
+                  - Day 2 (288.307)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Dillon Doe_193
+                        </td>
+                        <td class=detail>
+                          1:02:15(107.983)
+                        </td>
+                        <td class=detail>
+                          1:31:04(123.078)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Damien Doe_194
+                        </td>
+                        <td class=detail>
+                          1:33:35(162.335)
+                        </td>
+                        <td class=detail>
+                          1:35:51(129.543)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Ben Doe_196
+                        </td>
+                        <td class=detail>
+                          1:04:42(112.233)
+                        </td>
+                        <td class=detail>
+                          0:52:51(71.428)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brianna Doe_203
+                        </td>
+                        <td class=detail>
+                          1:52:08(91.843)
+                        </td>
+                        <td class=detail>
+                          1:50:39(93.801)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          James Doe_206
+                        </td>
+                        <td class=detail>
+                          1:21:54()
+                        </td>
+                        <td class=detail>
+                          2:23:57(194.551)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>5</td>
+              <td>
+                <div class=team_name>Degrassi  JV Silver  (625.82) </div>
+                <b><i>Degrassi  HS</i></b>
+                  - Day 1 (365.377)
+                  - Day 2 (260.438)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Daniel Doe_163
+                        </td>
+                        <td class=detail>
+                          1:02:03(107.636)
+                        </td>
+                        <td class=detail>
+                          0:55:10(74.559)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Laurel Doe_168
+                        </td>
+                        <td class=detail>
+                          2:51:12()
+                        </td>
+                        <td class=detail>
+                          3:02:39()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Andrew Doe_172
+                        </td>
+                        <td class=detail>
+                          1:46:11()
+                        </td>
+                        <td class=detail>
+                          1:14:29(100.666)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Joshua Doe_174
+                        </td>
+                        <td class=detail>
+                          1:23:24(144.671)
+                        </td>
+                        <td class=detail>
+                          1:08:33(92.647)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Michael Doe_177
+                        </td>
+                        <td class=detail>
+                          1:05:11(113.071)
+                        </td>
+                        <td class=detail>
+                          1:08:59(93.232)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>6</td>
+              <td>
+                <div class=team_name>Sunnydale  JV  (629.44) </div>
+                <b><i>Sunnydale  HS</i></b>
+                  - Day 1 (304.282)
+                  - Day 2 (325.153)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Jacob Doe_44
+                        </td>
+                        <td class=detail>
+                          1:25:25(148.169)
+                        </td>
+                        <td class=detail>
+                          1:49:37(148.149)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          William Doe_46
+                        </td>
+                        <td class=detail>
+                          1:40:07()
+                        </td>
+                        <td class=detail>
+                          1:38:33(133.192)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Kelsie Doe_47
+                        </td>
+                        <td class=detail>
+                          1:07:48(55.532)
+                        </td>
+                        <td class=detail>
+                          1:52:35(95.44)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Griff Doe_54
+                        </td>
+                        <td class=detail>
+                          0:57:59(100.581)
+                        </td>
+                        <td class=detail>
+                          1:18:10(105.644)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_55
+                        </td>
+                        <td class=detail>
+                          2:00:43(209.403)
+                        </td>
+                        <td class=detail>
+                          1:31:48(124.07)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>7</td>
+              <td>
+                <div class=team_name>Xavier  JV  (672.24) </div>
+                <b><i>Xavier  HS</i></b>
+                  - Day 1 (412.589)
+                  - Day 2 (259.65)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Justin Doe_15
+                        </td>
+                        <td class=detail>
+                          1:54:18(198.272)
+                        </td>
+                        <td class=detail>
+                          2:37:01(212.211)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Alex Doe_16
+                        </td>
+                        <td class=detail>
+                          1:20:42(139.987)
+                        </td>
+                        <td class=detail>
+                          1:19:10(106.995)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Domanique Doe_19
+                        </td>
+                        <td class=detail>
+                          2:11:58(228.917)
+                        </td>
+                        <td class=detail>
+                          1:13:08(98.841)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Carson Doe_4
+                        </td>
+                        <td class=detail>
+                          1:47:16(186.071)
+                        </td>
+                        <td class=detail>
+                          0:59:37(80.573)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Dylan Doe_8
+                        </td>
+                        <td class=detail>
+                          0:49:53(86.531)
+                        </td>
+                        <td class=detail>
+                          0:59:22(80.235)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>8</td>
+              <td>
+                <div class=team_name>Westdale  Bears JV  (807.06) </div>
+                <b><i>Westdale  HS</i></b>
+                  - Day 1 (501.259)
+                  - Day 2 (305.804)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Anthony Doe_25
+                        </td>
+                        <td class=detail>
+                          2:10:12(225.853)
+                        </td>
+                        <td class=detail>
+                          1:04:17(86.88)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Conner Doe_30
+                        </td>
+                        <td class=detail>
+                          2:41:22()
+                        </td>
+                        <td class=detail>
+                          1:47:23(145.131)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Braden Doe_33
+                        </td>
+                        <td class=detail>
+                          1:30:50(157.565)
+                        </td>
+                        <td class=detail>
+                          1:18:02(105.464)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Justin Doe_35
+                        </td>
+                        <td class=detail>
+                          2:10:10(225.795)
+                        </td>
+                        <td class=detail>
+                          1:29:58(121.592)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Ethan Doe_37
+                        </td>
+                        <td class=detail>
+                          1:07:58(117.899)
+                        </td>
+                        <td class=detail>
+                          1:23:57(113.46)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>9</td>
+              <td>
+                <div class=team_name>John Adams #1  (1031.63) </div>
+                <b><i>John Adams HS</i></b>
+                  - Day 1 (522.22)
+                  - Day 2 (509.411)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Michael Doe_66
+                        </td>
+                        <td class=detail>
+                          2:22:12(246.669)
+                        </td>
+                        <td class=detail>
+                          2:10:41(176.621)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Deacon Doe_69
+                        </td>
+                        <td class=detail>
+                          1:28:11(152.968)
+                        </td>
+                        <td class=detail>
+                          2:10:16(176.058)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jeffrey Doe_72
+                        </td>
+                        <td class=detail>
+                          1:18:07(135.506)
+                        </td>
+                        <td class=detail>
+                          2:04:14(167.904)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Karla Doe_75
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Aaron Doe_76
+                        </td>
+                        <td class=detail>
+                          2:14:45(233.746)
+                        </td>
+                        <td class=detail>
+                          2:02:25(165.449)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>10</td>
+              <td>
+                <div class=team_name>Beacon Town 3  (381.62) </div>
+                <b><i>Beacon Town HS</i></b>
+                  - Day 2 (381.624)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Katelyn Doe_265
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Sawyer Doe_268
+                        </td>
+                        <td class=detail>
+                          1:23:24(144.671)
+                        </td>
+                        <td class=detail>
+                          1:26:11(116.479)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Bruce Doe_276
+                        </td>
+                        <td class=detail>
+                          1:53:43()
+                        </td>
+                        <td class=detail>
+                          2:04:22()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Carlo Doe_278
+                        </td>
+                        <td class=detail>
+                          1:40:55()
+                        </td>
+                        <td class=detail>
+                          1:36:23(130.264)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Logan Doe_282
+                        </td>
+                        <td class=detail>
+                          2:22:07()
+                        </td>
+                        <td class=detail>
+                          1:39:48(134.882)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>11</td>
+              <td>
+                <div class=team_name>Beacon Town 2  (392.99) </div>
+                <b><i>Beacon Town HS</i></b>
+                  - Day 1 (392.987)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Michael Doe_262
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Michael Doe_263
+                        </td>
+                        <td class=detail>
+                          2:04:30()
+                        </td>
+                        <td class=detail>
+                          1:48:45()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Devon Doe_272
+                        </td>
+                        <td class=detail>
+                          0:59:20(102.923)
+                        </td>
+                        <td class=detail>
+                          1:02:48(84.875)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Seth Doe_274
+                        </td>
+                        <td class=detail>
+                          1:43:10(178.959)
+                        </td>
+                        <td class=detail>
+                          1:10:15(94.944)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Collin Doe_277
+                        </td>
+                        <td class=detail>
+                          1:04:03(111.105)
+                        </td>
+                        <td class=detail>
+                          1:44:06()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>12</td>
+              <td>
+                <div class=team_name>Glenbrook North I  (399.19) </div>
+                <b><i>Glenbrook North HS</i></b>
+                  - Day 2 (399.186)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Malcolm Doe_284
+                        </td>
+                        <td class=detail>
+                          1:24:01()
+                        </td>
+                        <td class=detail>
+                          1:52:22(151.866)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Max Doe_287
+                        </td>
+                        <td class=detail>
+                          2:37:14()
+                        </td>
+                        <td class=detail>
+                          2:23:45(194.281)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Isabella Doe_290
+                        </td>
+                        <td class=detail>
+                          1:49:44(89.877)
+                        </td>
+                        <td class=detail>
+                          1:02:34(53.039)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>13</td>
+              <td>
+                <div class=team_name>Glenbrook North JV  (431.23) </div>
+                <b><i>Glenbrook North HS</i></b>
+                  - Day 2 (431.225)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Tyler Doe_289
+                        </td>
+                        <td class=detail>
+                          1:51:24(193.241)
+                        </td>
+                        <td class=detail>
+                          1:18:58(106.725)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Ethan Doe_295
+                        </td>
+                        <td class=detail>
+                          1:56:19(201.77)
+                        </td>
+                        <td class=detail>
+                          2:18:57(187.794)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jesus Doe_296
+                        </td>
+                        <td class=detail>
+                          1:17:59()
+                        </td>
+                        <td class=detail>
+                          1:41:09(136.706)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Alexander Doe_297
+                        </td>
+                        <td class=detail>
+                          2:30:57()
+                        </td>
+                        <td class=detail>
+                          2:54:48()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>14</td>
+              <td>
+                <div class=team_name>Degrassi  JV Black  (479.29) </div>
+                <b><i>Degrassi  HS</i></b>
+                  - Day 1 (479.287)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Samuel Doe_160
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          1:23:57(113.46)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Damala Doe_164
+                        </td>
+                        <td class=detail>
+                          1:10:38(122.525)
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Garrett Doe_170
+                        </td>
+                        <td class=detail>
+                          2:10:23(226.171)
+                        </td>
+                        <td class=detail>
+                          1:37:31()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Nicholas Doe_173
+                        </td>
+                        <td class=detail>
+                          1:21:19(141.057)
+                        </td>
+                        <td class=detail>
+                          1:25:29()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Cameron Doe_182
+                        </td>
+                        <td class=detail>
+                          2:04:21(215.705)
+                        </td>
+                        <td class=detail>
+                          2:51:01(231.133)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>15</td>
+              <td>
+                <div class=team_name>Chilton ORANGE  </div>
+                <b><i>Chilton HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Ashley Doe_58
+                        </td>
+                        <td class=detail>
+                          1:32:30(75.762)
+                        </td>
+                        <td class=detail>
+                          2:06:03(106.856)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Sam Doe_60
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_62
+                        </td>
+                        <td class=detail>
+                          1:40:44(174.738)
+                        </td>
+                        <td class=detail>
+                          1:42:14(138.17)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Emily Doe_65
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>16</td>
+              <td>
+                <div class=team_name>Dillon High Sch  </div>
+                <b><i>Dillon HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Jovard Doe_228
+                        </td>
+                        <td class=detail>
+                          1:17:47(134.928)
+                        </td>
+                        <td class=detail>
+                          1:41:49(137.607)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Deshaun Doe_229
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Adesola Doe_230
+                        </td>
+                        <td class=detail>
+                          2:51:43(297.87)
+                        </td>
+                        <td class=detail>
+                          1:35:46(129.431)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>17</td>
+              <td>
+                <div class=team_name>Hornets Blue J  </div>
+                <b><i>Buchanan HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Aleeyah Doe_234
+                        </td>
+                        <td class=detail>
+                          1:36:32(79.066)
+                        </td>
+                        <td class=detail>
+                          2:31:06(128.091)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Cristina Doe_236
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Christopher Doe_242
+                        </td>
+                        <td class=detail>
+                          1:56:16()
+                        </td>
+                        <td class=detail>
+                          3:16:40()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Megan Doe_243
+                        </td>
+                        <td class=detail>
+                          2:12:01()
+                        </td>
+                        <td class=detail>
+                          2:10:35(110.699)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Bryson Doe_247
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>18</td>
+              <td>
+                <div class=team_name>Liberty JV #1  </div>
+                <b><i>Liberty HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Deavin Doe_145
+                        </td>
+                        <td class=detail>
+                          2:17:53(239.181)
+                        </td>
+                        <td class=detail>
+                          2:04:37()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Patrick Doe_156
+                        </td>
+                        <td class=detail>
+                          1:29:47(155.744)
+                        </td>
+                        <td class=detail>
+                          1:22:10(111.05)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Cameron Doe_158
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+         </table>
+      </td>
+      <td valign = top>
+        <table>
+            <tr>
+              <td valign=top>1</td>
+              <td>
+                <div class=team_name>Hogwarts INT Gol  (338.12) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (167.464)
+                  - Day 2 (170.656)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Harold Doe_113
+                        </td>
+                        <td class=detail>
+                          0:26:20(52.745)
+                        </td>
+                        <td class=detail>
+                          0:32:56(55.221)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Kayla Doe_119
+                        </td>
+                        <td class=detail>
+                          0:36:14(46.184)
+                        </td>
+                        <td class=detail>
+                          0:44:03(37.354)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Patrick Doe_129
+                        </td>
+                        <td class=detail>
+                          0:34:13(68.535)
+                        </td>
+                        <td class=detail>
+                          0:46:34(78.081)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>2</td>
+              <td>
+                <div class=team_name>Bel-Air I  (611.66) </div>
+                <b><i>Bel-Air Academy</i></b>
+                  - Day 1 (252.774)
+                  - Day 2 (358.882)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Arxcel Doe_197
+                        </td>
+                        <td class=detail>
+                          1:07:04(134.332)
+                        </td>
+                        <td class=detail>
+                          1:10:55(118.91)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jesus Doe_198
+                        </td>
+                        <td class=detail>
+                          0:53:45(107.659)
+                        </td>
+                        <td class=detail>
+                          1:34:05(157.755)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Trevor Doe_199
+                        </td>
+                        <td class=detail>
+                          0:54:13()
+                        </td>
+                        <td class=detail>
+                          1:07:58(113.964)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Nathan Doe_201
+                        </td>
+                        <td class=detail>
+                          0:33:16(66.632)
+                        </td>
+                        <td class=detail>
+                          1:21:08(136.041)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Trevor Doe_202
+                        </td>
+                        <td class=detail>
+                          0:39:11(78.483)
+                        </td>
+                        <td class=detail>
+                          1:15:09(126.008)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>3</td>
+              <td>
+                <div class=team_name>John Adams #2  (666.73) </div>
+                <b><i>John Adams HS</i></b>
+                  - Day 1 (326.317)
+                  - Day 2 (340.41)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Jeremy Doe_68
+                        </td>
+                        <td class=detail>
+                          0:44:23(88.898)
+                        </td>
+                        <td class=detail>
+                          1:25:33(143.447)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Bruce Doe_71
+                        </td>
+                        <td class=detail>
+                          1:07:46(135.734)
+                        </td>
+                        <td class=detail>
+                          1:19:32(133.358)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_73
+                        </td>
+                        <td class=detail>
+                          0:56:17(112.734)
+                        </td>
+                        <td class=detail>
+                          1:13:48(123.745)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Owen Doe_74
+                        </td>
+                        <td class=detail>
+                          1:02:15(124.685)
+                        </td>
+                        <td class=detail>
+                          1:07:35(113.321)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Adrian Doe_78
+                        </td>
+                        <td class=detail>
+                          1:25:54(172.055)
+                        </td>
+                        <td class=detail>
+                          1:01:38(103.344)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>4</td>
+              <td>
+                <div class=team_name>Liberty Int #1  (701.41) </div>
+                <b><i>Liberty HS</i></b>
+                  - Day 1 (301.48)
+                  - Day 2 (399.935)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Brandon Doe_135
+                        </td>
+                        <td class=detail>
+                          1:09:33(139.306)
+                        </td>
+                        <td class=detail>
+                          1:10:00(117.373)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Mason Doe_136
+                        </td>
+                        <td class=detail>
+                          0:55:38(111.432)
+                        </td>
+                        <td class=detail>
+                          2:08:27(215.38)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zachary Doe_138
+                        </td>
+                        <td class=detail>
+                          1:04:37(129.425)
+                        </td>
+                        <td class=detail>
+                          0:40:04(67.182)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Juan Doe_141
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Logan Doe_155
+                        </td>
+                        <td class=detail>
+                          0:30:16(60.623)
+                        </td>
+                        <td class=detail>
+                          1:16:16()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>5</td>
+              <td>
+                <div class=team_name>Beacon Town 4  </div>
+                <b><i>Beacon Town HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Selena Doe_260
+                        </td>
+                        <td class=detail>
+                          1:06:22(84.593)
+                        </td>
+                        <td class=detail>
+                          1:09:50(59.218)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Aysia Doe_281
+                        </td>
+                        <td class=detail>
+                          0:55:01(70.126)
+                        </td>
+                        <td class=detail>
+                          1:47:15(90.947)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>6</td>
+              <td>
+                <div class=team_name>Westdale  Bears Novice  </div>
+                <b><i>Westdale  HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Nathaniel Doe_42
+                        </td>
+                        <td class=detail>
+                          2:39:05()
+                        </td>
+                        <td class=detail>
+                          1:22:16()
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+         </table>
+      </td>
+      <td valign = top>
+        <table>
+            <tr>
+              <td valign=top>1</td>
+              <td>
+                <div class=team_name>Hogwarts Varsity Gold  (354.08) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (179.78)
+                  - Day 2 (174.303)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Isaac Doe_101
+                        </td>
+                        <td class=detail>
+                          0:57:39(61.017)
+                        </td>
+                        <td class=detail>
+                          1:00:10(62.367)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Michael Doe_124
+                        </td>
+                        <td class=detail>
+                          0:54:11(57.348)
+                        </td>
+                        <td class=detail>
+                          0:56:33(58.618)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Alisia Doe_125
+                        </td>
+                        <td class=detail>
+                          1:19:24(63.577)
+                        </td>
+                        <td class=detail>
+                          1:10:03(61.061)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Andrew Doe_126
+                        </td>
+                        <td class=detail>
+                          1:00:02(63.54)
+                        </td>
+                        <td class=detail>
+                          1:17:39(80.489)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Aminah Doe_131
+                        </td>
+                        <td class=detail>
+                          1:16:42(61.415)
+                        </td>
+                        <td class=detail>
+                          1:02:40(54.625)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>2</td>
+              <td>
+                <div class=team_name>Xavier  Varsity  (417.77) </div>
+                <b><i>Xavier  HS</i></b>
+                  - Day 1 (211.83)
+                  - Day 2 (205.943)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Garrett Doe_10
+                        </td>
+                        <td class=detail>
+                          1:42:34(108.557)
+                        </td>
+                        <td class=detail>
+                          1:25:13(88.333)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Stephen Doe_14
+                        </td>
+                        <td class=detail>
+                          1:47:09(113.408)
+                        </td>
+                        <td class=detail>
+                          1:36:57(100.495)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Taylor Doe_17
+                        </td>
+                        <td class=detail>
+                          1:08:42(55.009)
+                        </td>
+                        <td class=detail>
+                          1:25:00(74.092)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jordan Doe_21
+                        </td>
+                        <td class=detail>
+                          0:58:14(61.635)
+                        </td>
+                        <td class=detail>
+                          0:56:56(59.015)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zachary Doe_24
+                        </td>
+                        <td class=detail>
+                          1:29:56(95.186)
+                        </td>
+                        <td class=detail>
+                          1:10:16(72.836)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>3</td>
+              <td>
+                <div class=team_name>Liberty Varsity #1  (450.47) </div>
+                <b><i>Liberty HS</i></b>
+                  - Day 1 (230.389)
+                  - Day 2 (220.077)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Adam Doe_142
+                        </td>
+                        <td class=detail>
+                          1:22:41(87.513)
+                        </td>
+                        <td class=detail>
+                          1:20:13(83.15)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Haley Doe_146
+                        </td>
+                        <td class=detail>
+                          1:27:31(70.076)
+                        </td>
+                        <td class=detail>
+                          1:32:32(80.659)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zachary Doe_151
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Gazaille Doe_152
+                        </td>
+                        <td class=detail>
+                          1:08:47(72.801)
+                        </td>
+                        <td class=detail>
+                          1:03:49(66.15)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jake Doe_153
+                        </td>
+                        <td class=detail>
+                          1:32:10(97.55)
+                        </td>
+                        <td class=detail>
+                          1:10:41(73.268)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>4</td>
+              <td>
+                <div class=team_name>Hogwarts Varsity Silver  (472.49) </div>
+                <b><i>Hogwarts HS</i></b>
+                  - Day 1 (260.122)
+                  - Day 2 (212.371)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Anant Doe_102
+                        </td>
+                        <td class=detail>
+                          1:32:19(97.709)
+                        </td>
+                        <td class=detail>
+                          1:14:08(76.844)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brittany Doe_121
+                        </td>
+                        <td class=detail>
+                          1:40:58(80.845)
+                        </td>
+                        <td class=detail>
+                          1:13:47(64.315)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Richard Doe_127
+                        </td>
+                        <td class=detail>
+                          1:17:04(81.568)
+                        </td>
+                        <td class=detail>
+                          1:08:42(71.212)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>5</td>
+              <td>
+                <div class=team_name>Hornets Gold V  (561.15) </div>
+                <b><i>Buchanan HS</i></b>
+                  - Day 1 (312.603)
+                  - Day 2 (248.552)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_232
+                        </td>
+                        <td class=detail>
+                          1:05:59()
+                        </td>
+                        <td class=detail>
+                          1:07:35(70.055)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Sterling Doe_233
+                        </td>
+                        <td class=detail>
+                          1:50:30(116.954)
+                        </td>
+                        <td class=detail>
+                          1:24:16(87.348)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Lacy Doe_235
+                        </td>
+                        <td class=detail>
+                          2:04:51(99.969)
+                        </td>
+                        <td class=detail>
+                          2:29:46(130.547)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Isaac Doe_240
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Justin Doe_244
+                        </td>
+                        <td class=detail>
+                          1:30:24(95.68)
+                        </td>
+                        <td class=detail>
+                          1:27:56(91.149)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>6</td>
+              <td>
+                <div class=team_name>Bel-Air V  (566.17) </div>
+                <b><i>Bel-Air Academy</i></b>
+                  - Day 1 (333.152)
+                  - Day 2 (233.018)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Jamie Doe_191
+                        </td>
+                        <td class=detail>
+                          2:37:26()
+                        </td>
+                        <td class=detail>
+                          1:15:27(65.768)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Josue Doe_192
+                        </td>
+                        <td class=detail>
+                          1:31:25(96.756)
+                        </td>
+                        <td class=detail>
+                          1:18:06(80.956)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Austin Doe_195
+                        </td>
+                        <td class=detail>
+                          1:43:04(109.087)
+                        </td>
+                        <td class=detail>
+                          1:23:15(86.294)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Austin Doe_204
+                        </td>
+                        <td class=detail>
+                          2:00:17(127.309)
+                        </td>
+                        <td class=detail>
+                          1:49:18(113.297)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Juan Doe_205
+                        </td>
+                        <td class=detail>
+                          2:01:11(128.261)
+                        </td>
+                        <td class=detail>
+                          1:40:28(104.141)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>7</td>
+              <td>
+                <div class=team_name>Hornets Blue V  (571.78) </div>
+                <b><i>Buchanan HS</i></b>
+                  - Day 1 (278.959)
+                  - Day 2 (292.822)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Noah Doe_237
+                        </td>
+                        <td class=detail>
+                          1:36:20(101.96)
+                        </td>
+                        <td class=detail>
+                          2:56:13(182.661)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Mathew Doe_238
+                        </td>
+                        <td class=detail>
+                          1:42:35(108.575)
+                        </td>
+                        <td class=detail>
+                          1:54:49(119.015)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Dayzhana Doe_239
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          2:13:41(116.528)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Alissa Doe_241
+                        </td>
+                        <td class=detail>
+                          1:49:36(87.758)
+                        </td>
+                        <td class=detail>
+                          1:46:55(93.196)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Zackary Doe_245
+                        </td>
+                        <td class=detail>
+                          1:24:19(89.241)
+                        </td>
+                        <td class=detail>
+                          1:20:10(83.098)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>8</td>
+              <td>
+                <div class=team_name>Sunnydale  V  (594.67) </div>
+                <b><i>Sunnydale  HS</i></b>
+                  - Day 1 (335.41)
+                  - Day 2 (259.263)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Ryan Doe_48
+                        </td>
+                        <td class=detail>
+                          1:36:24(102.031)
+                        </td>
+                        <td class=detail>
+                          1:09:37(72.162)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brenda Doe_49
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brandon Doe_50
+                        </td>
+                        <td class=detail>
+                          1:24:01(88.924)
+                        </td>
+                        <td class=detail>
+                          1:36:20(99.856)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Cody Doe_51
+                        </td>
+                        <td class=detail>
+                          2:16:29(144.455)
+                        </td>
+                        <td class=detail>
+                          1:24:10(87.244)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>9</td>
+              <td>
+                <div class=team_name>Chilton GREEN  (597.91) </div>
+                <b><i>Chilton HS</i></b>
+                  - Day 1 (312.319)
+                  - Day 2 (285.592)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Blake Doe_59
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Kade Doe_61
+                        </td>
+                        <td class=detail>
+                          1:30:58(96.28)
+                        </td>
+                        <td class=detail>
+                          1:40:43(104.4)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Brennan Doe_63
+                        </td>
+                        <td class=detail>
+                          1:56:15(123.04)
+                        </td>
+                        <td class=detail>
+                          1:37:47(101.359)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          David Doe_64
+                        </td>
+                        <td class=detail>
+                          1:27:52(92.999)
+                        </td>
+                        <td class=detail>
+                          1:17:01(79.833)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>10</td>
+              <td>
+                <div class=team_name>Westdale  Bears  (609.99) </div>
+                <b><i>Westdale  HS</i></b>
+                  - Day 1 (344.406)
+                  - Day 2 (265.586)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Steven Doe_26
+                        </td>
+                        <td class=detail>
+                          1:17:51(82.397)
+                        </td>
+                        <td class=detail>
+                          1:23:10(86.208)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Tyler Doe_28
+                        </td>
+                        <td class=detail>
+                          2:38:13(167.458)
+                        </td>
+                        <td class=detail>
+                          1:51:46(115.854)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Madison Doe_29
+                        </td>
+                        <td class=detail>
+                          2:01:25()
+                        </td>
+                        <td class=detail>
+                          1:56:16(101.346)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Christian Doe_34
+                        </td>
+                        <td class=detail>
+                          1:29:20(94.551)
+                        </td>
+                        <td class=detail>
+                          1:23:38(86.692)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jacob Doe_40
+                        </td>
+                        <td class=detail>
+                          2:49:42(179.612)
+                        </td>
+                        <td class=detail>
+                          1:29:25(92.686)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>11</td>
+              <td>
+                <div class=team_name>Degrassi  Varsity  (648.08) </div>
+                <b><i>Degrassi  HS</i></b>
+                  - Day 1 (357.336)
+                  - Day 2 (290.74)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          John Doe_166
+                        </td>
+                        <td class=detail>
+                          1:17:26(81.956)
+                        </td>
+                        <td class=detail>
+                          1:40:52(104.555)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Melissa Doe_175
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Jalen Doe_178
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Matthew Doe_180
+                        </td>
+                        <td class=detail>
+                          2:41:29(170.915)
+                        </td>
+                        <td class=detail>
+                          1:43:39(107.44)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Colin Doe_181
+                        </td>
+                        <td class=detail>
+                          1:38:42(104.465)
+                        </td>
+                        <td class=detail>
+                          1:15:58(78.745)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>12</td>
+              <td>
+                <div class=team_name>Beacon Town 1  (728.15) </div>
+                <b><i>Beacon Town HS</i></b>
+                  - Day 1 (423.187)
+                  - Day 2 (304.958)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Dylan Doe_266
+                        </td>
+                        <td class=detail>
+                          2:53:26(183.563)
+                        </td>
+                        <td class=detail>
+                          1:47:19()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Andrew Doe_267
+                        </td>
+                        <td class=detail>
+                          2:36:05(165.2)
+                        </td>
+                        <td class=detail>
+                          1:49:50(113.85)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Chadron Doe_271
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Ryan Doe_275
+                        </td>
+                        <td class=detail>
+                          2:09:45()
+                        </td>
+                        <td class=detail>
+                          2:03:48(128.327)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Dylan Doe_280
+                        </td>
+                        <td class=detail>
+                          1:10:19(74.424)
+                        </td>
+                        <td class=detail>
+                          1:00:34(62.781)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>13</td>
+              <td>
+                <div class=team_name>Glenbrook North V  (320.11) </div>
+                <b><i>Glenbrook North HS</i></b>
+                  - Day 2 (320.109)
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Christian Doe_283
+                        </td>
+                        <td class=detail>
+                          3:07:59()
+                        </td>
+                        <td class=detail>
+                          1:55:16(119.482)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          John Doe_285
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          1:42:53(106.646)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Joshua Doe_288
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Todd Doe_293
+                        </td>
+                        <td class=detail>
+                          1:37:18(102.983)
+                        </td>
+                        <td class=detail>
+                          1:30:40(93.982)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign=top>14</td>
+              <td>
+                <div class=team_name>Sunnydale  V2  </div>
+                <b><i>Sunnydale  HS</i></b>
+                <table width=95%>
+                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                      <tr>
+                        <td class=detail>
+                          Zachery Doe_45
+                        </td>
+                        <td class=detail>
+                          2:04:19(131.578)
+                        </td>
+                        <td class=detail>
+                          2:21:45(146.933)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Colton Doe_52
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                        <td class=detail>
+                          00:00:00()
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=detail>
+                          Joey Doe_53
+                        </td>
+                        <td class=detail>
+                          1:32:56(98.361)
+                        </td>
+                        <td class=detail>
+                          1:17:13(80.04)
+                        </td>
+                      </tr>
+                </table>
+              </td>
+            </tr>
+         </table>
+      </td>
+
+
+</table>
+
+</body>
+</html>
