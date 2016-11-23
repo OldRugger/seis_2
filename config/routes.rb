@@ -12,4 +12,8 @@ Seis2::Application.routes.draw do
 
   get "awards" => "awards#index"
 
+  root :to => 'home#index'
+
+  match "*path", to: "home#index", via: :all
+
 end
