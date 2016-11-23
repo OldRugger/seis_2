@@ -39,14 +39,14 @@ This system was developed on Windows 10 with Rails version 4.0.2 and Ruby versio
 
 1.  Clone the repo
 1.  Install gems
- `gem install bundler`
- `bundle install` 
+ gem install bundler
+ bundle install
 1.  Set up the database
- `bundle exec rake db:create`
- `bundle exec rake db:migrate`
+ bundle exec rake db:create
+ bundle exec rake db:migrate
     
 At this point you should be ready to go.  If you want to use the default rails webserver, you can simply run:
- `bundle exec rails s` 
+ bundle exec rails s 
 By default the server will be listening on port 3000.  You can change that with the -p option. 
 
 ===Processing
