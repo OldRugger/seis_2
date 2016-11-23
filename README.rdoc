@@ -40,8 +40,8 @@ This system was developed on Windows 10 with Rails version 4.0.2 and Ruby versio
 1.  Clone the repo
 2.  Install gems
 ```
-gem install bundler
-bundle install 
+    gem install bundler
+    bundle install 
 ```
 3.  Set up the database
 ```
