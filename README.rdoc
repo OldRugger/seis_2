@@ -2,7 +2,7 @@
 
 This application is the Georgia Orienteering Club's implementation of the Average Weighted Time (AWT) team scoring system used for the Southeast Interscholastic Championships.  The system is based on the interscholastic scoring rules published by Orienteering USA.  It is also based, in part, on a spreadsheet developed by the North Texas Orienteering Associatation that server the same perpose.  The system uses input files from Sports Software OE system. 
 
-[Sample results file](http://htmlpreview.github.io/?https://github.com/OldRugger/seis_2/blob/master/testdata/test_results.html)
+{Sample results file}[http://htmlpreview.github.io/?https://github.com/OldRugger/seis_2/blob/master/testdata/test_results.html]
 
 ===Scoring Rules
 
@@ -39,7 +39,7 @@ The file should be sorted by 'Team', 'Class'
 Examples of all three files can be found in the testdata directory
 
 ===Install
-This system was developed on Windows 10 with Rails version 4.0.2 and Ruby version 2.1.8p440.  To keep it simple the data store is Sqlite. The system should run fine in any Rails v environment.  If you are trying to deploy to a Windows machine, I recommend [Rails Installer](http://railsinstaller.org/en).  
+This system was developed on Windows 10 with Rails version 4.0.2 and Ruby version 2.1.8p440.  To keep it simple the data store is Sqlite. The system should run fine in any Rails v environment.  If you are trying to deploy to a Windows machine, I recommend {Rails Installer}[http://railsinstaller.org/en].  
 
 1.  Clone the repo
 1.  Install gems
