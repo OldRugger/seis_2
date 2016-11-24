@@ -18,13 +18,15 @@ class Teams2Controller < ApplicationController
 
     @runners = TeamMember.joins(:runner)
       .select("team_members.team_id, runners.id as runner_id,
-              runners.firstname  as firstname,
-              runners.surname    as surname,
-              runners.time1      as time1,
-              runners.time2      as time2,
-              runners.day1_score as day1_score,
-              runners.day2_score as day2_score,
-              runners.entryclass as entryclass ")
+              runners.firstname   as firstname,
+              runners.surname     as surname,
+              runners.time1       as time1,
+              runners.time2       as time2,
+              runners.classifier1 as classifier1,
+              runners.classifier2 as classifier2,
+              runners.day1_score  as day1_score,
+              runners.day2_score  as day2_score,
+              runners.entryclass  as entryclass ")
       .order("team_members.team_id, runners.surname").all
 
   end
