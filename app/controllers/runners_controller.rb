@@ -5,11 +5,8 @@ class RunnersController < ApplicationController
     @runners = Runner.order(:entryclass, :surname, :firstname).all
   end
 
-  def show
-  end
-
   def import
-    if params[:file] == nil 
+    if params[:file] == nil
       redirect_to runners_url, :flash => { :error => "No input file selected" }
       return
     end

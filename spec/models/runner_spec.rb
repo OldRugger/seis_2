@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Runner, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "should import runners " do
+    file = File.new(Rails.root.join("testdata", "OE0010_import_test_data.csv"))
+    Runner.import(file)
+    expect(Runner.all.count).to eq(180)
+  end
+
 end

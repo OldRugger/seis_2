@@ -11,7 +11,7 @@ RSpec.describe "teams/show", type: :view do
   xit "renders attributes in <p>" do
     render
     response.should render_template("show")
-    expect(rendered).to match(/Hogwarts Varsity/)
-    expect(rendered).to match(/Hogwarts/)
+    expect(response.body).to include(/Hogwarts Varsity/)
+    expect(response.body).to include(/Hogwarts/)
   end
 end
