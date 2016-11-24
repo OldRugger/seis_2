@@ -3,3 +3,8 @@ development:
   hotfolder: .\results
   max_time:  180
 
+test:
+  title:     '2017 Southeast Interscholastic Championships'
+  hotfolder: .\results
+  max_time:  180
+
