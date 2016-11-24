@@ -5,10 +5,10 @@ RSpec.describe "runners/index", type: :view do
     assign(:runners, [
       Runner.create!(
         :database_id => 2,
-        :surname => "Surname",
-        :firstname => "Firstname",
+        :surname => "Doe1",
+        :firstname => "John1",
         :gender => "Gender",
-        :school => "School",
+        :school => "Hogwarts",
         :entryclass => "Entryclass",
         :float_time1 => 3.5,
         :classifier1 => "Classifier1",
@@ -20,10 +20,10 @@ RSpec.describe "runners/index", type: :view do
       ),
       Runner.create!(
         :database_id => 2,
-        :surname => "Surname",
-        :firstname => "Firstname",
+        :surname => "Doe2",
+        :firstname => "John2",
         :gender => "Gender",
-        :school => "School",
+        :school => "Xavier",
         :entryclass => "Entryclass",
         :float_time1 => 3.5,
         :classifier1 => "Classifier1",
@@ -38,18 +38,8 @@ RSpec.describe "runners/index", type: :view do
 
   it "renders a list of runners" do
     render
-    assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => "Surname".to_s, :count => 2
-    assert_select "tr>td", :text => "Firstname".to_s, :count => 2
-    assert_select "tr>td", :text => "Gender".to_s, :count => 2
-    assert_select "tr>td", :text => "School".to_s, :count => 2
-    assert_select "tr>td", :text => "Entryclass".to_s, :count => 2
-    assert_select "tr>td", :text => 3.5.to_s, :count => 2
-    assert_select "tr>td", :text => "Classifier1".to_s, :count => 2
-    assert_select "tr>td", :text => 4.5.to_s, :count => 2
-    assert_select "tr>td", :text => "Total Time".to_s, :count => 2
-    assert_select "tr>td", :text => 5.5.to_s, :count => 2
-    assert_select "tr>td", :text => 6.5.to_s, :count => 2
-    assert_select "tr>td", :text => 7.5.to_s, :count => 2
+    response.should render_template("index")
+    expect(response.body).to include("Hogwarts")
+    expect(response.body).to include("Xavier")
   end
 end
