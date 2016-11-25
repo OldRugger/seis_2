@@ -12,20 +12,12 @@ class RunnersController < ApplicationController
     end
 
     ActiveRecord::Base.transaction do
-      clear_existing_data
       @added, @skipped = Runner.import(params[:file])
     end
     redirect_to runners_url, notice: "#{@added} runners imported, #{@skipped} runners skipped."
   end
 
   private
-    def clear_existing_data
-      TeamMember.delete_all
-      Team.delete_all
-      Day1Awt.delete_all
-      Day2Awt.delete_all
-      Runner.delete_all
-    end
 
     def set_runner
       @runner = Runner.find(params[:id])
