@@ -25,13 +25,12 @@ class TeamsController < ApplicationController
               runners.day1_score as day1_score,
               runners.surname")
       .order("team_members.team_id, runners.day1_score")
-      .all
+      .load
     team_id = 0
     results_str = nil
     isday1.each do |d|
       if team_id != d.team_id
         if team_id != 0
-          puts "new team #{d.team_id}"
           @day1_hash[team_id] = results_str if team_id !=0
         end
         team_id = d.team_id
@@ -52,13 +51,12 @@ class TeamsController < ApplicationController
               runners.day2_score as day2_score,
               runners.surname")
       .order("team_members.team_id, runners.day2_score")
-      .all
+      .load
     team_id = 0
     results_str = nil
     isday2.each do |d|
       if team_id != d.team_id
         if team_id != 0
-          puts "new team #{d.team_id}"
           @day2_hash[team_id] = results_str if team_id !=0
         end
         team_id = d.team_id

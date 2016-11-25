@@ -2,11 +2,6 @@ require 'rails_helper'
 
 RSpec.describe TeamResults do
   it "should import results and calculate team scores" do
-    TeamMember.delete_all
-    Team.delete_all
-    Day1Awt.delete_all
-    Day2Awt.delete_all
-    Runner.delete_all
     file = File.new(Rails.root.join("testdata", "OE0010_import_test_data.csv"))
     Runner.import(file)
     file = File.new(Rails.root.join("testdata", "seis_teams.csv"))

@@ -6,7 +6,6 @@ class Team < ActiveRecord::Base
     current_team = nil
     CSV.foreach(file.path, headers: true) do |row|
       if row['Team']
-        puts "#{row.to_hash}"
         if current_team == nil || current_team.name != row['Team']
           current_team = self.create_team(row)
           teams += 1
