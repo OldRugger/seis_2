@@ -1,3 +1,4 @@
+# This class load the 2 day results file and clculates the team scores.
 class TeamResults
   include SuckerPunch::Job
 
@@ -8,7 +9,6 @@ class TeamResults
 
   def calculate_awt
     ActiveRecord::Base.transaction do
-      puts "calculate_awt"
       delete_awt_results
       calculate_awt_by_class("ISP")
       calculate_awt_by_class("ISI")
@@ -48,7 +48,6 @@ class TeamResults
   end
 
   def calculate_awt_by_class(team_class)
-    puts "calculate_awt - #{team_class}"
     #day 1
     awtm1 = calculate_awt_by_class_gender(team_class, "M", 1)
     awtf1 = calculate_awt_by_class_gender(team_class, "F", 1)
@@ -120,7 +119,6 @@ class TeamResults
   end
 
   def calculate_awt_by_class_gender(team_class, gender, day)
-    puts "calculate_awt - #{team_class} - #{gender}"
     times = []
     awt_runners = Runner.where(entryclass: team_class+gender)
                     .where("classifier#{day} = 0 and ? > 0", "float_time#{day}")
@@ -182,7 +180,6 @@ class TeamResults
   end
 
   def get_time(time)
-    puts "get time #{time}"
     float_time = 0.0
     hhmmss = time.split(":")
     if (hhmmss.length ==3 ) then

@@ -2,7 +2,7 @@ class RunnersController < ApplicationController
   before_action :set_runner, only: [:show, :edit, :update, :destroy]
 
   def index
-    @runners = Runner.order(:entryclass, :surname, :firstname).all
+    @runners = Runner.order(:entryclass, :surname, :firstname).load
   end
 
   def import

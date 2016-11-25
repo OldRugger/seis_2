@@ -27,7 +27,7 @@ class Teams2Controller < ApplicationController
               runners.day1_score  as day1_score,
               runners.day2_score  as day2_score,
               runners.entryclass  as entryclass ")
-      .order("team_members.team_id, runners.surname").all
+      .order("team_members.team_id, runners.surname").load
 
   end
 end
