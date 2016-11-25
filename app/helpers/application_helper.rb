@@ -14,6 +14,24 @@ module ApplicationHelper
     end
   end
 
+  def get_float_time(time)
+    float_time = 0.0
+    hhmmss = time.split(":")
+    if (hhmmss.length ==3 ) then
+      time = time
+      hh = hhmmss[0].to_i
+      mm = hhmmss[1].to_i
+      ss = hhmmss[2].to_i
+      float_Time = (hh*60) + mm + (ss/60.0)
+    elsif (hhmmss.length == 2) then
+      time = "00:" + time
+      mm = hhmmss[0].to_i
+      ss = hhmmss[1].to_i
+      float_Time = mm + (ss/60.0)
+    end
+    {'float' => float_Time, 'time' => time}
+  end
+
   def is_sqlite?
   	ActiveRecord::Base.connection.adapter_name === "SQLite"
   end

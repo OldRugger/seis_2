@@ -1,6 +1,7 @@
 # This class load the 2 day results file and clculates the team scores.
 class TeamResults
   include SuckerPunch::Job
+  include ApplicationHelper
 
   def perform(file)
     process_results_file(file[0])
@@ -22,29 +23,9 @@ class TeamResults
     sortvalue = 9999.0
     teams = Team.all
     teams.each do |team|
-      day1_score = get_team_day_scores(team, 1)
-      day2_score = get_team_day_scores(team, 2)
-      team.total_score = day1_score + day2_score
-      team.day1_score  = day1_score > 0.0 ? day1_score : sortvalue
-      team.day2_score  = day2_score > 0.0 ? day2_score : sortvalue
-      team.sort_score  = team.day1_score + team.day2_score
+      team.update_team_scores
       team.save
     end
-  end
-
-  def get_team_day_scores(team, day)
-    day_score = 0.0
-    scores = TeamMember.joins(:runner)
-      .select("team_members.team_id,runners.id as runner_id,runners.day#{day}_score as day_score")
-      .where(team_id: team.id).where("runners.day#{day}_score > ?", 0.0)
-      .order("runners.day#{day}_score")
-      .limit(3)
-    if scores.count === 3
-      scores.each do |score|
-        day_score += score.day_score if score.day_score
-      end
-    end
-    day_score
   end
 
   def calculate_awt_by_class(team_class)
@@ -144,21 +125,21 @@ class TeamResults
 
   def process_results_row(row)
     if (row["Time1"])
-      res = get_time(row["Time1"])
+      res = get_float_time(row["Time1"])
       float_time1 = res['float']
       time1 =  res['float']
     else
       float_time1 = 0.0
     end
     if (row["Time2"])
-      res = get_time(row["Time2"])
+      res = get_float_time(row["Time2"])
       float_time2 = res['float']
       time2 =  res['float']
     else
       float_time2 = 0.0
     end
     if (row["Total"])
-      res = get_time(row["Total"])
+      res = get_float_time(row["Total"])
       float_total = res['float']
       total =  res['float']
     else
@@ -173,24 +154,6 @@ class TeamResults
                   classifier2: row["Classifier2"].to_s,
                   total_time: total,
                   float_total_time: float_total)
-  end
-
-  def get_time(time)
-    float_time = 0.0
-    hhmmss = time.split(":")
-    if (hhmmss.length ==3 ) then
-      time = time
-      hh = hhmmss[0].to_i
-      mm = hhmmss[1].to_i
-      ss = hhmmss[2].to_i
-      float_Time = (hh*60) + mm + (ss/60.0)
-    elsif (hhmmss.length == 2) then
-      time = "00:" + time
-      mm = hhmmss[0].to_i
-      ss = hhmmss[1].to_i
-      float_Time = mm + (ss/60.0)
-    end
-    {'float' => float_Time, 'time' => time}
   end
 
 end
