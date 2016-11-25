@@ -90,19 +90,15 @@ class TeamResults
   def update_day_scores(awt1, awt2, cat_time1, cat_time2, team_class, gender)
     runners = Runner.where(entryclass: team_class+gender)
     runners.each do |r|
-      if (r.classifier1 === "0" && r.float_time1 > 0 && awt1)
-        if r.float_time1 < APP_CONFIG[:max_time]
-          r.day1_score = 60 * (r.float_time1/awt1[:awt])
-        else
-          r.day1_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time1))
-        end
+      if  ["1", "2", "3", "4", "5"].include? r.classifier1
+        r.day1_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time1))
+      elsif (r.classifier1 === "0" && r.float_time1 > 0 && awt1)
+        r.day1_score = 60 * (r.float_time1/awt1[:awt])
       end
-      if (r.classifier2 === "0" && r.float_time2 > 0 && awt2)
-        if r.float_time2 < APP_CONFIG[:max_time]
-          r.day2_score = 60 * (r.float_time2/awt2[:awt])
-        else
-          r.day2_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time2))
-        end
+      if  ["1", "2", "3", "4", "5"].include? r.classifier2
+        r.day2_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time2))
+      elsif (r.classifier2 === "0" && r.float_time2 > 0 && awt2)
+        r.day2_score = 60 * (r.float_time2/awt2[:awt])
       end
       if (awt1 || awt2)
         r.save
