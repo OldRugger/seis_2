@@ -4,6 +4,7 @@ class TeamResults
   include ApplicationHelper
 
   def perform(file)
+    @max_time = APP_CONFIG[:max_time]
     process_results_file(file[0])
     calculate_awt
   end
@@ -29,20 +30,22 @@ class TeamResults
   end
 
   def calculate_awt_by_class(team_class)
+    male_entryclass = team_class + "M"
+    female_entryclass = team_class + "F"
     #day 1
-    awtm1 = calculate_awt_by_class_gender(team_class, "M", 1)
-    awtf1 = calculate_awt_by_class_gender(team_class, "F", 1)
-    cat_time1 = get_category_time(awtm1, awtf1)
-    update_day_awt(awtm1, team_class, "M", 1, cat_time1) if awtm1
-    update_day_awt(awtf1, team_class, "F", 1, cat_time1) if awtf1
+    day1_awt_m = calculate_awt_by_class_gender(team_class, "M", 1)
+    day1_awt_f = calculate_awt_by_class_gender(team_class, "F", 1)
+    day1_cat = get_category_time(day1_awt_m, day1_awt_f)
+    update_day_awt(day1_awt_m, male_entryclass, 1, day1_cat) if day1_awt_m
+    update_day_awt(day1_awt_f, female_entryclass, 1, day1_cat) if day1_awt_f
     #day 2
-    awtm2 = calculate_awt_by_class_gender(team_class, "M", 2)
-    awtf2 = calculate_awt_by_class_gender(team_class, "F", 2)
-    cat_time2 = get_category_time(awtm2, awtf2)
-    update_day_awt(awtm2, team_class, "M", 2, cat_time2) if awtm2
-    update_day_awt(awtf2, team_class, "F", 2, cat_time2) if awtf2
-    update_day_scores(awtm1, awtm2, cat_time1, cat_time2, team_class, "M")
-    update_day_scores(awtf1, awtf2, cat_time1, cat_time2, team_class, "F")
+    day2_awt_m = calculate_awt_by_class_gender(team_class, "M", 2)
+    day2_awt_f = calculate_awt_by_class_gender(team_class, "F", 2)
+    day2_cat = get_category_time(day2_awt_m, day2_awt_f)
+    update_day_awt(day2_awt_m, male_entryclass, 2, day2_cat) if day2_awt_m
+    update_day_awt(day2_awt_f, female_entryclass, 2, day2_cat) if day2_awt_f
+    update_day_scores(day1_awt_m, day2_awt_m, day1_cat, day2_cat, team_class, "M")
+    update_day_scores(day1_awt_f, day2_awt_f, day1_cat, day2_cat, team_class, "F")
   end
 
   def delete_awt_results
@@ -50,49 +53,59 @@ class TeamResults
     Day2Awt.delete_all
   end
 
-  def update_day_awt(awt, team_class, gender, day, cat_time)
+  def update_day_awt(awt, entryclass, day, cat_time)
     klass = "Day#{day}Awt".constantize
-    klass.create do |a|
-      a.entryclass          = team_class + gender
-      a.runner1_id          =  awt[:runners][0][:id]
-      a.runner1_float_time  =  awt[:runners][0]["float_time#{day}".to_sym]
-      a.runner1_time        =  awt[:runners][0]["time#{day}".to_sym]
-      a.runner2_id          =  awt[:runners][1][:id]
-      a.runner2_float_time  =  awt[:runners][1]["float_time#{day}".to_sym]
-      a.runner2_time        =  awt[:runners][1]["time#{day}".to_sym]
-      a.runner3_id          =  awt[:runners][2][:id]
-      a.runner3_float_time  =  awt[:runners][2]["float_time#{day}".to_sym]
-      a.runner3_time        =  awt[:runners][2]["time#{day}".to_sym]
-      a.cat_float_time      =  cat_time
-      a.awt_float_time      =  awt[:awt]
+    float_time = "float_time#{day}".to_sym
+    time_day = "time#{day}".to_sym
+    runners = awt[:runners]
+    first_runner = runners[0]
+    second_runner = runners[1]
+    third_runner = runners[2]
+
+    klass.create do |awt_row|
+      awt_row.entryclass          =  entryclass
+      awt_row.runner1_id          =  first_runner[:id]
+      awt_row.runner1_float_time  =  first_runner[float_time]
+      awt_row.runner1_time        =  first_runner[time_day]
+      awt_row.runner2_id          =  second_runner[:id]
+      awt_row.runner2_float_time  =  second_runner[float_time]
+      awt_row.runner2_time        =  second_runner[time_day]
+      awt_row.runner3_id          =  third_runner[:id]
+      awt_row.runner3_float_time  =  third_runner[float_time]
+      awt_row.runner3_time        =  third_runner[time_day]
+      awt_row.cat_float_time      =  cat_time
+      awt_row.awt_float_time      =  awt[:awt]
     end
   end
 
-  def update_day_scores(awt1, awt2, cat_time1, cat_time2, team_class, gender)
+  def update_day_scores(awt1, awt2, day1_cat, day2_cat, team_class, gender)
     runners = Runner.where(entryclass: team_class+gender)
-    runners.each do |r|
-      if  ["1", "2", "3", "4", "5"].include? r.classifier1
-        r.day1_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time1))
-      elsif (r.classifier1 === "0" && r.float_time1 > 0 && awt1)
-        r.day1_score = 60 * (r.float_time1/awt1[:awt])
+    runners.each do |runner|
+      day1_classifier = runner.classifier1
+      day2_classifier = runner.classifier2
+
+      if  day1_classifier != "0"
+        runner.day1_score = 10 + (60 * (@max_time/day1_cat))
+      elsif (day1_classifier === "0" && runner.float_time1 > 0 && awt1)
+        runner.day1_score = 60 * (runner.float_time1/awt1[:awt])
       end
-      if  ["1", "2", "3", "4", "5"].include? r.classifier2
-        r.day2_score = 10 + (60 * (APP_CONFIG[:max_time]/cat_time2))
-      elsif (r.classifier2 === "0" && r.float_time2 > 0 && awt2)
-        r.day2_score = 60 * (r.float_time2/awt2[:awt])
+      if day2_classifier != "0"
+        runner.day2_score = 10 + (60 * (@max_time/day2_cat))
+      elsif (day2_classifier === "0" && runner.float_time2 > 0 && awt2)
+        runner.day2_score = 60 * (runner.float_time2/awt2[:awt])
       end
       if (awt1 || awt2)
-        r.save
+        runner.save
       end
     end
   end
 
   def get_category_time(m_awt, f_awt)
-    m = 0
-    f = 0
-    m = m_awt[:awt] if m_awt
-    f = f_awt[:awt] if f_awt
-    cat_time = m < f  ? m : f
+    male = 0
+    female = 0
+    male = m_awt[:awt] if m_awt
+    female = f_awt[:awt] if f_awt
+    cat_time = male < female  ? male : female
   end
 
   def calculate_awt_by_class_gender(team_class, gender, day)
@@ -116,44 +129,11 @@ class TeamResults
         if ( (row['Database Id'] != nil) &&
              (row['Database Id'].length > 0) &&
              (row['Short'].start_with?('IS')) )
-            process_results_row(row)
+            Runner.import_results_row(row)
         end
       end
     end
     File.delete(file)
-  end
-
-  def process_results_row(row)
-    if (row["Time1"])
-      res = get_float_time(row["Time1"])
-      float_time1 = res['float']
-      time1 =  res['float']
-    else
-      float_time1 = 0.0
-    end
-    if (row["Time2"])
-      res = get_float_time(row["Time2"])
-      float_time2 = res['float']
-      time2 =  res['float']
-    else
-      float_time2 = 0.0
-    end
-    if (row["Total"])
-      res = get_float_time(row["Total"])
-      float_total = res['float']
-      total =  res['float']
-    else
-      float_total = 0.0
-    end
-     Runner.where(database_id: row['Database Id'].to_s)
-      .update_all(time1: time1,
-                  float_time1: float_time1,
-                  classifier1: row["Classifier1"].to_s,
-                  time2: time2,
-                  float_time2: float_time2,
-                  classifier2: row["Classifier2"].to_s,
-                  total_time: total,
-                  float_total_time: float_total)
   end
 
 end
