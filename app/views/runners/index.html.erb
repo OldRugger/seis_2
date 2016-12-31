@@ -50,7 +50,7 @@
         <td><%= runner.entryclass %></td>
         <td>
         <% if is_sqlite? %>
-           <%= float_time_to_hhmmss(runner.time1) %>
+           <%= float_time_to_hhmmss(runner.float_time1) %>
           <%= %>
         <% else %>
           <%= runner.time1 %>
@@ -60,7 +60,7 @@
         <td><%= runner.classifier1 %></td>
         <td>
         <% if is_sqlite? %>
-          <%= float_time_to_hhmmss(runner.time2) %>
+          <%= float_time_to_hhmmss(runner.float_time2) %>
         <% else %>
           <%= runner.time2 %>
         <% end %>
@@ -69,7 +69,7 @@
         <td><%= runner.classifier2 %>
         <td>
         <% if is_sqlite? %>
-           <%= float_time_to_hhmmss(runner.total_time) %>
+           <%= float_time_to_hhmmss(runner.float_total_time) %>
           <%= %>
         <% else %>
           <%=  runner.total_time %>
