@@ -3,7 +3,6 @@ APP_CONFIG.symbolize_keys!
 
 listener = Listen.to(APP_CONFIG[:hotfolder]) do |modified, added, removed|
   if added.length > 0
-    binding.pry
     Rails.logger.info "call TeamResults"
     TeamResults.new.perform(added)
     Rails.logger.info "added file: #{added}"

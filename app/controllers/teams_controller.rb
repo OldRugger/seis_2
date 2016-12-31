@@ -76,13 +76,15 @@ class TeamsController < ApplicationController
   def show
     @runners = TeamMember.joins(:runner)
       .select("team_members.team_id, runners.id as runner_id,
-              runners.firstname  as firstname,
-              runners.surname    as surname,
-              runners.time1      as time1,
-              runners.time2      as time2,
-              runners.day1_score as day1_score,
-              runners.day2_score as day2_score,
-              runners.entryclass as entryclass ")
+              runners.firstname   as firstname,
+              runners.surname     as surname,
+              runners.time1       as time1,
+              runners.time2       as time2,
+              runners.float_time1 as float_time1,
+              runners.float_time2 as float_time2,
+              runners.day1_score  as day1_score,
+              runners.day2_score  as day2_score,
+              runners.entryclass  as entryclass ")
       .where(team_id: params[:id]).all
 
     awt = get_awt_hash

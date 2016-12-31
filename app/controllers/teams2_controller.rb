@@ -22,6 +22,8 @@ class Teams2Controller < ApplicationController
               runners.surname     as surname,
               runners.time1       as time1,
               runners.time2       as time2,
+              runners.float_time1 as float_time1,
+              runners.float_time2 as float_time2,
               runners.classifier1 as classifier1,
               runners.classifier2 as classifier2,
               runners.day1_score  as day1_score,
