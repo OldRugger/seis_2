@@ -3,6 +3,7 @@ module ApplicationHelper
   CLASS_LIST =  ['ISVM', 'ISVF', 'ISJVM', 'ISJVF', 'ISIM', 'ISIF', 'ISPM', 'ISPF']
 
   def float_time_to_hhmmss(float_time)
+    return if float_time.class == String
     if (float_time && float_time > 0)
       min = float_time.floor
       mm = (min % 60).floor
@@ -18,13 +19,14 @@ module ApplicationHelper
   	ActiveRecord::Base.connection.adapter_name === "SQLite"
   end
 
-  def time_to_value(classifier, time)
+  def time_to_value(classifier, time, float_time)
     return 'OT'  if classifier === '5'  # Over Time
     return 'DSQ' if classifier === '4'  # disqualified
     return 'MP'  if classifier === '3'  # Missed Punch
     return 'DNF' if classifier === '2'  # Did not finish
     return 'DNS' if classifier === '1'  # Did not start
-    time = is_sqlite? ? float_time_to_hhmmss(time) : time
+    time = is_sqlite? ? float_time_to_hhmmss(float_time) : time
+    time
   end
 
   def get_awt_hash
@@ -52,8 +54,8 @@ module ApplicationHelper
       klass = "Day#{day}Awt".constantize
       awt = klass.all
       awt.each do |result|
-        @awt[day][result.entryclass] = float_time_to_hhmmss(result.awt_float_time)
-        @awt[day]["#{result.entryclass}_cat"] = float_time_to_hhmmss(result.cat_float_time)
+        @awt[day][result.entryclass] = float_time_to_hhmmss(result.awt_float_time) if result.awt_float_time > 0
+        @awt[day]["#{result.entryclass}_cat"] = float_time_to_hhmmss(result.cat_float_time) if result.cat_float_time > 0
         get_runners(day, result)
       end
     end
@@ -68,7 +70,7 @@ module ApplicationHelper
       if result.send("runner#{r}_float_time") == 0
         time = "n/a*"
       elsif is_sqlite?
-        time = float_time_to_hhmmss(result.send("runner#{r}_time"))
+        time = float_time_to_hhmmss(result.send("runner#{r}_float_time"))
       else
         time = result.send("runner#{r}_time")
       end
