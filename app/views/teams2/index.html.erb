@@ -46,53 +46,59 @@
     font-size: 90%;
   }
 </style>
-<table class=table>
-  <tr id=awt_bar>
-    <th class="awt" colspan=18 >
-      Average Weighted Time
-    </th>
-  </tr>
-  <tr class=header_row>
-    <td class=awt_cat colspan=9><b>Day 1</b></td>
-    <td class=awt_cat colspan=9><b>Day 2</b></td>
-  </tr>
-  <tr>
-    <% 2.times do %>
-      <td class=awt_cat_b>Class</td>
-      <% @class_list.each do |c| %>
-        <td class=awt_cat><%=c%></td>
-      <% end %>
-    <% end %>
-  </tr>
-  <% 3.times do |n| %>
-    <% runner = n + 1 %>
+<% if @ids === false %>
+  <table class=table>
+    <tr id=awt_bar>
+      <th class="awt" colspan=18 >
+        Average Weighted Time
+      </th>
+    </tr>
+    <tr class=header_row>
+      <td class=awt_cat colspan=9><b>Day 1</b></td>
+      <td class=awt_cat colspan=9><b>Day 2</b></td>
+    </tr>
     <tr>
-      <% 2.times do |d| %>
-        <td class=awt_cat_b><%= "Runner #{runner}" %> </td>
+      <% 2.times do %>
+        <td class=awt_cat_b>Class</td>
         <% @class_list.each do |c| %>
-          <td>
-            <%= @awt[d+1]["#{c}#{runner}"] || "n/a*" %>
-          </td>
+          <td class=awt_cat><%=c%></td>
         <% end %>
       <% end %>
     </tr>
-  <% end %>
-  <tr id=awt_line>
-    <% 2.times do |d| %>
-      <td class=awt_cat_b> AWT </td>
-      <% @class_list.each do |c| %>
-        <td>
-          <%= @awt[d+1][c] || "n/a*" %>
+    <% 3.times do |n| %>
+      <% runner = n + 1 %>
+      <tr>
+        <% 2.times do |d| %>
+          <td class=awt_cat_b><%= "Runner #{runner}" %> </td>
+          <% @class_list.each do |c| %>
+            <td>
+              <%= @awt[d+1]["#{c}#{runner}"] || "n/a*" %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+    <tr id=awt_line>
+      <% 2.times do |d| %>
+        <td class=awt_cat_b> AWT </td>
+        <% @class_list.each do |c| %>
+          <td>
+            <%= @awt[d+1][c] || "n/a*" %>
+          </td>
+        <% end %>
         </td>
       <% end %>
-      </td>
-    <% end %>
-  </tr>
-</table>
-<br>
+    </tr>
+  </table>
+  <br>
+<% end %>
 <table class=table>
   <tr id=team_bar>
-    <th class="awt" colspan=5>Team Results</th>
+    <% if @ids %>
+      <th class="awt" colspan=5>Team Members</th>
+    <% else %>
+      <th class="awt" colspan=5>Team Results</th>
+    <% end %>
   </tr>
   <tr class=header_row>
   <% @classes.each do  |c, teams| %>
@@ -117,19 +123,43 @@
               <td>
                 <div class=team_name><%= team.name %> <%= score %> </div>
                 <b><i><%= team.school %></i></b>
-                <% if team.day1_score < 9999 %>
+                <% if (team.day1_score && team.day1_score < 9999) %>
                   - Day 1 (<%=team.day1_score.round(3) %>)
                 <% end %>
-                <% if team.day2_score < 9999 %>
+                <% if (team.day2_score && team.day2_score < 9999) %>
                   - Day 2 (<%=team.day2_score.round(3) %>)
                 <% end %>
                 <table width=95%>
-                  <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                  <% if @ids %>
+                    <tr><th>Start Number</th><th>Runner</th>
+                  <% else %>
+                    <tr><th>Runner</th><th>Day 1</th><th>Day 2</th></tr>
+                  <% end %>
                   <% @runners.each do |r| %>
                     <% if (r.team_id == team.id) %>
                       <tr>
+                        <% if @ids %>
+                          <td class=detail align=center>
+                            <%= r.database_id %>
+                          <% end %>
                         <td class=detail>
                           <%= "#{r.firstname} #{r.surname}" %>
+
+                        <% if @ids === false %>
+                          </td>
+                          <td class=detail>
+                            <% if r.day1_score %>
+                              <% time = time_to_value(r.classifier1, r.time1, r.float_time1) %>
+                              <%= "#{time}(#{r.day1_score.round(3)})" %>
+                            <% end %>
+                          </td>
+                          <td class=detail>
+                            <% if r.day2_score %>
+                              <% time = time_to_value(r.classifier2, r.time2, r.float_time2) %>
+                              <%= "#{time}(#{r.day2_score.round(3)})" %>
+                            <% end %>
+                          </td>
+                        <% end %>
                         </td>
                         <td class=detail>
                           <% time = time_to_value(r.classifier1, r.time1, r.float_time1) %>

@@ -4,10 +4,13 @@ class Team < ActiveRecord::Base
     teams = 0
     members = 0
     current_team = nil
+    current_class = nil
     CSV.foreach(file.path, headers: true) do |row|
-      if row['Team']
-        if current_team == nil || current_team.name != row['Team']
+      if (row['Team']) && (row['Class'].include? "IS")
+        if (current_team == nil || current_team.name != row['Team']) ||
+           current_class == nil || !(row['Class'].include? current_class)
           current_team = self.create_team(row)
+          current_class = current_team.entryclass
           teams += 1
         end
         self.assign_member(current_team, row)
@@ -46,6 +49,7 @@ class Team < ActiveRecord::Base
 
   def self.create_team(row)
     rowclass = row['Class']
+    entryclass = nil
     case rowclass
     when 'ISPM', 'ISPF'
       entryclass = 'ISP'
@@ -55,6 +59,9 @@ class Team < ActiveRecord::Base
       entryclass = 'ISJV'
     when 'ISVM', 'ISVF'
       entryclass = 'ISV'
+    end
+    if entryclass == nil
+      return
     end
     Team.create(name: row['Team'],
                 entryclass: entryclass,
