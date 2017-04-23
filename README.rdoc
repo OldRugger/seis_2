@@ -39,7 +39,7 @@ The file should be sorted by 'Team', 'Class'
 Examples of all three files can be found in the testdata directory
 
 ===Install
-This system was developed on Windows 10 with Rails version 4.0.2 and Ruby version 2.1.8p440.  To keep it simple the data store is Sqlite. The system should run fine in any Rails version 4 environment.  If you are trying to deploy to a Windows machine, I recommend {Rails Installer}[http://railsinstaller.org/en].  
+This system was developed on Windows 10 with Rails version 4.0.2 and Ruby version 2.1.8p440.  To keep it simple, the data store is Sqlite. The system should run fine in any Rails version 4 environment.  If you are trying to deploy to a Windows machine, I recommend {Rails Installer}[http://railsinstaller.org/en].  
 
 1.  Clone the repo
 1.  Install gems
@@ -62,7 +62,7 @@ By default the server will be listening on port 3000.  You can change that with 
 * Copy the results file (OE0010) in the the results directory (configurable).  The file will be auto detected and processed.  Caution, the file will be deleted at the end of processing. 
 
 ===Output Pages
-====runners 
+====Runners 
 This page has a detail listing of all runners imported into they system
 ====Teams 
 Current team results
