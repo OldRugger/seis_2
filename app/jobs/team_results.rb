@@ -67,12 +67,16 @@ class TeamResults
       awt_row.runner1_id          =  first_runner[:id]
       awt_row.runner1_float_time  =  first_runner[float_time]
       awt_row.runner1_time        =  first_runner[time_day]
-      awt_row.runner2_id          =  second_runner[:id]
-      awt_row.runner2_float_time  =  second_runner[float_time]
-      awt_row.runner2_time        =  second_runner[time_day]
-      awt_row.runner3_id          =  third_runner[:id]
-      awt_row.runner3_float_time  =  third_runner[float_time]
-      awt_row.runner3_time        =  third_runner[time_day]
+      if second_runner
+        awt_row.runner2_id          =  second_runner[:id] || nil
+        awt_row.runner2_float_time  =  second_runner[float_time] || nil
+        awt_row.runner2_time        =  second_runner[time_day] || nil
+      end
+      if third_runner
+        awt_row.runner3_id          =  third_runner[:id]
+        awt_row.runner3_float_time  =  third_runner[float_time]
+        awt_row.runner3_time        =  third_runner[time_day]
+      end
       awt_row.cat_float_time      =  cat_time
       awt_row.awt_float_time      =  awt[:awt]
     end
