@@ -89,14 +89,14 @@
         <% end %>
       </td>
       <td class="cat3c">
-        <% if @day1_hash && @day1_hash[runner.entryclass] %>
-          <%= @day2_hash[runner.entryclass][:awt] %>
+        <% if @day2_hash && @day2_hash[runner.entryclass] %>
+          <%= @day2_hash[runner.entryclass][:awt]  %>
         <% else %>
           n/a
         <% end %>
       </td>
       <td class="cat3c">
-        <% if @day1_hash && @day1_hash[runner.entryclass] %>
+        <% if @day2_hash && @day2_hash[runner.entryclass] %>
           <%= @day2_hash[runner.entryclass][:cat] %>
         <% else %>
           n/a
