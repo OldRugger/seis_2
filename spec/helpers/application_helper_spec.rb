@@ -34,22 +34,22 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it "should return OT" do
-      helper.time_to_value("5", @time).should eq("OT")
+      helper.time_to_value("5", @time, @time).should eq("OT")
     end
     it "should return DSQ" do
-      helper.time_to_value("4", @time).should eq("DSQ")
+      helper.time_to_value("4", @time, @time).should eq("DSQ")
     end
     it "should return MP" do
-      helper.time_to_value("3", @time).should eq("MP")
+      helper.time_to_value("3", @time, @time).should eq("MP")
     end
     it "should return DNF" do
-      helper.time_to_value("2", @time).should eq("DNF")
+      helper.time_to_value("2", @time, @time).should eq("DNF")
     end
     it "should return DNS" do
-      helper.time_to_value("1", @time).should eq("DNS")
+      helper.time_to_value("1", @time, @time).should eq("DNS")
     end
     it "should return time" do
-      helper.time_to_value("0", @time).should eq("1:05:39")
+      helper.time_to_value("0", @time, @time).should eq("1:05:39")
     end
   end
 
