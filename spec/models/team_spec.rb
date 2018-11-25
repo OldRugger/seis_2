@@ -7,6 +7,6 @@ RSpec.describe Team, type: :model do
     file = File.new(Rails.root.join("testdata", "seis_teams.csv"))
     Team.import(file)
     expect(Team.all.count).to eq(38)
-    expect(TeamMember.all.count).to eq(163)
+    expect(TeamMember.all.count).to eq(162)
   end
 end
