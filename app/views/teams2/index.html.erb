@@ -161,14 +161,6 @@
                           </td>
                         <% end %>
                         </td>
-                        <td class=detail>
-                          <% time = time_to_value(r.classifier1, r.time1, r.float_time1) %>
-                          <%= "#{time}(#{r.day1_score.round(3) if r.day1_score})" %>
-                        </td>
-                        <td class=detail>
-                          <% time = time_to_value(r.classifier2, r.time2, r.float_time2) %>
-                          <%= "#{time}(#{r.day2_score.round(3) if r.day2_score})" %>
-                        </td>
                       </tr>
                     <% end %>
                   <% end %>
