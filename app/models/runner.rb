@@ -4,7 +4,8 @@ class Runner < ActiveRecord::Base
     skipped = 0
     self.clear_existing_data
     CSV.foreach(file.path, headers: true) do |row|
-      if row["Short"].include? "IS"
+      puts [row]
+      if row["Short"] && (row["Short"].include? "IS")
         Runner.create(database_id: row["Database Id"],
                       surname: row["Surname"].gsub("'"){"\\'"},
                       firstname: row["First name"].gsub("'"){"\\'"},
@@ -20,15 +21,15 @@ class Runner < ActiveRecord::Base
   end
 
   def self.import_results_row(row)
-    if (row["Time1"])
-      res = self.get_float_time(row["Time1"])
+    if (row["Time2"])
+      res = self.get_float_time(row["Time2"])
       float_time1 = res['float']
       time1 =  res['time']
     else
       float_time1 = 0.0
     end
-    if (row["Time2"])
-      res = self.get_float_time(row["Time2"])
+    if (row["Time3"])
+      res = self.get_float_time(row["Time3"])
       float_time2 = res['float']
       time2 =  res['time']
     else
@@ -44,10 +45,10 @@ class Runner < ActiveRecord::Base
     Runner.where(database_id: row['Database Id'].to_s)
       .update_all(time1: time1,
                   float_time1: float_time1,
-                  classifier1: row["Classifier1"].to_s,
+                  classifier1: row["Classifier2"].to_s,
                   time2: time2,
                   float_time2: float_time2,
-                  classifier2: row["Classifier2"].to_s,
+                  classifier2: row["Classifier3"].to_s,
                   total_time: total,
                   float_total_time: float_total)
 

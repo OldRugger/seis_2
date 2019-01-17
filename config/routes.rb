@@ -11,6 +11,7 @@ Seis2::Application.routes.draw do
   get "awt" => "awt#index"
 
   get "teams2" => "teams2#index"
+  get "roster" => "roster#index"
 
   get "awards" => "awards#index"
 

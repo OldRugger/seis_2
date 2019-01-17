@@ -35,11 +35,11 @@ class Team < ActiveRecord::Base
   def get_team_day_scores(day)
     day_score = 0.0
     scores = TeamMember.joins(:runner)
-      .select("team_members.team_id,runners.id as runner_id,runners.day#{day}_score as day_score")
+      .select("team_members.team_id, runners.id as runner_id, runners.day#{day}_score as day_score ")
       .where(team_id: self.id).where("runners.day#{day}_score > ?", 0.0)
       .order("runners.day#{day}_score")
       .limit(3)
-    if scores.count === 3
+    if scores.length === 3
       scores.each do |score|
         day_score += score.day_score if score.day_score
       end

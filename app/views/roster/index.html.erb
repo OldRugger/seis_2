@@ -1,0 +1,95 @@
+<style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    order-spacing: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .table #awt_bar {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: DarkRed;
+  }
+  .table #team_bar {
+    background-color: DarkRed;
+ }
+  .table #awt_line {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  .table #awt_bar .awt {
+    color: white;
+  }
+  .table #team_bar .awt {
+    color: white;
+  }
+  .table .awt_cat {
+    text-align: center;
+  }
+  .table .awt_cat_b {
+    text-align: center;
+    font-weight: bold;
+  }
+  .table .header_row {
+    background-color: LightGoldenRodYellow;
+  }
+  .table .team_name {
+    color: red;
+    font-weight: bold;
+  }
+  .table .detail {
+    font-size: 90%;
+  }
+</style>
+<table class=table>
+  <tr id=team_bar>
+      <th class="awt" colspan=5>Team Rosters</th>
+  </tr>
+  <tr class=header_row>
+  <% @classes.each do  |c, teams| %>
+      <%if (teams.count > 0)%>
+        <th align = center><%= c.upcase %></th>
+      <% end %>
+  <% end %>
+  </tr>
+  <% @classes.each do  |c, teams| %>
+    <% if (teams.count > 0)%>
+      <% iplace = 1 %>
+      <td valign = top>
+        <table align=center width=60%>
+          <% teams.each do |team| %>
+            <tr>
+              <td valign=top><%=iplace.to_s %></td>
+              <td width=95%>
+                <div class=team_name><%= team.name %> </div>
+                <table width=95%>
+                  <tr><th>OE ID</th><th>Runner</th>
+                  <% @runners.each do |r| %>
+                    <% if (r.team_id == team.id) %>
+                      <tr>
+                        <td class=detail align=center>
+                          <%= r.database_id %>
+                        </td>
+                        <td class=detail>
+                          <%= "#{r.firstname} #{r.surname}" %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                </table>
+              </td>
+            </tr>
+            <% iplace += 1 %>
+          <% end %>
+         </table>
+      </td>
+    <% end %>
+  <% end %>
+
+
+</table>
