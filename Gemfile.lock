@@ -55,6 +55,7 @@ GEM
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.7.0)
+    ffi (1.9.25)
     ffi (1.9.25-x86-mingw32)
     flay (2.12.0)
       erubis (~> 2.7.0)
@@ -176,6 +177,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sqlite3 (1.3.13)
     sqlite3 (1.3.13-x86-mingw32)
     sucker_punch (2.1.1)
       concurrent-ruby (~> 1.0)
@@ -189,7 +191,7 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (0.3.55)
+    tzinfo (0.3.61)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     virtus (1.0.5)
@@ -197,9 +199,9 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    wdm (0.1.1)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
@@ -218,7 +220,6 @@ DEPENDENCIES
   sucker_punch
   turbolinks
   uglifier (>= 1.3.0)
-  wdm (>= 0.1.0)
 
 BUNDLED WITH
    1.15.3
